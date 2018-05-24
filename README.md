@@ -9,7 +9,7 @@
 
 ## Презентации
 
-## Домашние задания ([репо](https://github.com/netology-code/html-foxford-homeworks/tree/master/tags)
+## Домашние задания ([репо](https://github.com/netology-code/html-foxford-homeworks/tree/master/tags))
 
 ### Блок 1
 
