@@ -1,4 +1,4 @@
-# Домашние задания для курса html-foxford
+# Материалы для курса html-foxford
 
 ## Конспекты лекций
 
@@ -13,4 +13,5 @@
 
 ### Блок 1
 
-1. [Теги для разметки текста и атрибуты](https://netology-code.github.io/html-foxford-homeworks/tags/)
+1. [Теги для разметки текста и атрибуты](https://netology-code.github.io/html-foxford-homeworks/tags/)  
+2. [Списки и таблицы](https://netology-code.github.io/html-foxford-homeworks/list-n-tables/)
