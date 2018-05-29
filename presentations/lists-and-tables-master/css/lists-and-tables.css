@@ -1,0 +1,13 @@
+span, pre.line-numbers {
+  font-size: 14.5px;
+}
+
+/*Добавил для презентации lists-and-tables*/
+span.accent-nb {
+  font-size: 24px;
+  color: red;
+}
+
+span.next.accent {
+  font-size: 20px;
+}
