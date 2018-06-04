@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Оформление текстовых блоков с помощью CSS</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-16x10.css">
+    <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/prism-fix.css">
+    <link rel="stylesheet" href="css/netology.css">
+    <link rel="stylesheet" href="css/fake-browser.css">
+
+    <style>
+        pre {
+            font-size: 70%;
+        }
+
+        .demo {
+            font-size: 50%;
+            float: right;
+        }
+
+        .accent {
+            color: #48bc36;
+        }
+    </style>
+</head>
+<body class="shower list">
+  <header class="caption">
+      <h1>Оформление текстовых блоков с помощью CSS</h1>
+      <p>Татьяна Тен, frontend-разработчик в webcoalition.ru</p>
+  </header>
+
+  <section class="slide" id="cover">
+      <h2>Оформление текстовых блоков с помощью CSS</h2>
+      <p>
+          <img src="i/me.jpg" alt="" class="avatar">
+          Татьяна Тен <span class="position">Нетология</span>
+      </p>
+  </section>
+  <section class="slide author" id="author">
+      <img src="i/me.jpg" alt="">
+      <h1>Татьяна Тен</h1>
+      <p class="position">frontend-разработчик в webcoalition.ru</p>
+      <ul class="contacts">
+          <li><a href="mailto:"><i class="fa fa-envelope-o" aria-hidden="true"></i>tt@webcoalition.ru</a></li>
+          <li><a href=""><i class="fa fa-facebook" aria-hidden="true"></i>tanya.ten10</a></li>
+      </ul>
+  </section>
+
+  <section class="slide" id="roadmap">
+    <h2>План занятия</h2>
+    <ol>
+      <li><a href="#begin">Селекторы и свойства: введение</a>
+        <ul>
+          <li><a href="#what">Что такое CSS?</a></li>
+          <li><a href="#where">Где написать CSS?</a></li>
+        </ul>
+      </li>
+      <li><a href="#rule">CSS-правило</a>
+        <ul>
+          <li><a href="#syntax">Синтаксис</a></li>
+          <li><a href="#selector">Что может быть селектором</a></li>
+          <li><a href="#props">Базовые свойства для стилизации шрифта</a></li>
+        </ul>
+      </li>
+      <li><a href="#colors">Цвет текста и фона в CSS</a>
+      <li><a href="#cascade">Комбинации селекторов</a></li>
+      <li><a href="#list-properties">Свойства списков</a></li>
+    </ol>
+  </section>  
+
+  <section class="slide chapter" id="begin">
+    <h2>Введение</h2>
+  </section>
+  
+  <section class="slide" id="what">
+    <h2>Что такое CSS?</h2>
+    <a href="http://info.cern.ch/hypertext/WWW/TheProject.html" target="_blank">Так выглядит первая в мире html страница</a>
+    <iframe src="http://info.cern.ch/hypertext/WWW/TheProject.html" width="100%" height="400" align="left">
+    </iframe>
+  </section>
+  
+  <section class="slide" id="what">
+    <h2>Что такое CSS?</h2>
+    <p class="next">Выглядит не очень-то привлекательно, правда? Если бы не придумали, как управлять оформлением - таким был бы весь интернет по сей день.</p>
+    <p class="next">Сначала были попытки оформлять страницы с помощью особых тегов - например font, b, i</p>
+    <p class="next">Но разработчики вовремя поняли, что это - путь в никуда, и решили отделить все оформление от структуры - так появился CSS</p>
+  </section>
+  
+  <section class="slide">
+    <h2>Что такое CSS</h2>
+    <p>CSS - Cascading Style Sheets - каскадные таблицы стилей - это язык, содержащий набор информации, отвечающий за то, как именно будет отображаться страница сайта визуально.</p>
+    <img src="i/without-and-with-css.jpg" style="width: 700px; display: block; margin: 10px auto 0;">
+    <p class="small" style="text-align: center;">Страница facebook без CSS и с CSS</p>
+  </section>
+  
+  <section class="slide" id="where">
+    <h2>Где написать CSS?</h2>
+    <p>Для подключения css используется два специальных тега meta и style.</p>
+    <p>Но так как мы будем работать с codepen, то эти теги использовать не будем. Стили пишем в окошко “css”, и codepen сам подключит их.</p>
+    <iframe src="https://codepen.io/wizjer/pen/NzGydx?editors=1100" width="100%" height="300"  align="left"></iframe>
+  </section>
+  
+  <section class="slide chapter" id="rule">
+    <h2>CSS-правило</h2>
+  </section>
+  <section class="slide" id="syntax">
+    <h2>CSS-правило</h2>
+    <pre>
+      <code class="language-css  line-numbers">
+        p {
+          color: red;
+        }
+      </code>
+    </pre>
+    <p>В терминах CSS это - правило.</p>
+    <p>Его составные части:</p>
+    <ul>
+      <li>селектор(<code>strong</code>) - указание к  каким тегам применяются указанные в правиле стили;</li>
+      <li>пары "свойство : значение" разделенных двоеточием и обязательно заканчивающихся точкой с запятой. Обязательно заключаются в фигурные скобки.</li>
+    </ul>
+  </section>
+  
+  <section class="slide" id="selector">
+    <h2>Что может быть селектором?</h2>
+    <p>Название тега, например: <code>section</code>, <code>p</code>, <code>a</code>, <code>h1</code>, <code>h2</code> и т.д.</p>
+  </section>
+  
+  <section class="slide" id="props">
+    <h2>Какие свойства можно записать в CSS-правило?</h2>
+    <p>Например, стили оформления текста.</p>
+    <ul>
+      <li>Размер шрифта;</li>
+      <li>Жирность шрифта;</li>      
+      <li>Тип начертания(наклонный или нет);</li>
+      <li>Семейство шрифта.</li>
+    </ul>
+  </section>
+  
+  <section class="slide">
+    <h2>font-size</h2>
+    <p>Задает размер шрифта.</p>
+    <p class="next">
+     <pre>
+      <code class="language-css  line-numbers">
+      strong {
+        font-size: 120%;
+      }
+      h2 {
+        font-size: 40px;
+      }
+      </code>
+     </pre>
+    </p>
+    <p class="next accent">Один пиксель равен одной точке на экране.</p>
+  </section>
+  
+  <section class="slide">
+    <div class="fake-browser-ui">
+      <div class="frame"><span></span><span></span><span></span></div>
+      <div class="body font-size">
+        <div>
+          <h2 style="font-size: 40px;">Котики</h2>
+          <p><strong style="font-size: 120%;">Котики</strong> - это не только ценный мех, но и достаточно разочарований.</p>
+          <p><strong style="font-size: 120%;">Котики</strong> - это не только встроенный мурчальник, но и немало человеческого счастья.</p>
+          <p><strong style="font-size: 120%;">Котики</strong> - это не только испорченная мебель, но и много килограмм пушистого пузика.</p>
+      </div>
+    </div>
+  </section>
+    
+  <section class="slide">
+    <h2>font-weight</h2>
+    <p>Задает жирность шрифта.</p>
+    <p class="next">
+     <pre>
+      <code class="language-css  line-numbers">
+      h2 {
+        font-weight: 300;
+      }
+    </code>
+    </pre>
+    </p>
+    <p class="next">
+     <pre>
+      <code class="language-css  line-numbers">
+      h2 {
+        font-weight: bold;
+      }
+    </code>
+    </pre>
+    </p>
+  </section>
+
+  <section class="slide">
+    <div class="fake-browser-ui">
+      <div class="frame"><span></span><span></span><span></span></div>
+      <div class="body font-weight">
+        <div>
+          <h2 style="font-weight: 300;">Котики</h2>
+          <p>Котики - это не только ценный мех, но и достаточно разочарований.</p>
+          <p>Котики - это не только встроенный мурчальник, но и немало человеческого счастья.</p>
+          <p>Котики - это не только испорченная мебель, но и много килограмм пушистого пузика.</p>
+        </div>
+      </div>
+  </section>
+    
+  <section class="slide">
+    <h2>font-weight</h2>
+    <pre>
+    <code class="language-css  line-numbers">
+      font-weight: normal; //Нормальное начертание. То же, что и 400.
+      font-weight: bold; //То же, что и 700.
+
+      font-weight: 100;
+      font-weight: 200;
+      font-weight: 300;
+      font-weight: 400;
+      font-weight: 500;
+      font-weight: 600;
+      font-weight: 700;
+      font-weight: 800;
+      font-weight: 900;
+    </code></pre>
+  </section>
+    
+  <section class="slide">
+    <h2>font-style</h2>
+    <p>Задает стиль начертания шрифта.</p>
+    <p class="next">
+     <pre>
+      <code class="language-css  line-numbers">
+      p {
+        font-style: italic; // Курсивное начертание.
+      }
+      p {
+        font-style: oblique; //Наклонное начертание
+      }
+    </code>
+    </pre>
+    </p>
+    <p>Курсив и наклонный шрифт при всей их похожести не одно и то же.<br>
+      Курсив это специальный шрифт имитирующий рукописный, наклонный же образуется путем наклона обычных знаков вправо.</p>
+  </section>
+  <section class="slide">
+    <div class="fake-browser-ui">
+      <div class="frame"><span></span><span></span><span></span></div>
+      <div class="body font-style">
+        <div>
+          <h2 style="font-style: italic;">Котики</h2>
+          <p>Котики - это не только ценный мех, но и достаточно разочарований.</p>
+          <p>Котики - это не только встроенный мурчальник, но и немало человеческого счастья.</p>
+          <p>Котики - это не только испорченная мебель, но и много килограмм пушистого пузика.</p>
+        </div>
+      </div>
+  </section>
+
+   <section class="slide">
+    <h2>font-family</h2>
+    <p>Задает семейство шрифта.</p>
+    <p class="next">
+     <pre>
+      <code class="language-css  line-numbers">
+      h2 {
+        font-family: Courier;
+      }
+      p {
+        font-family: serif; //с засечками
+      }
+    </code>
+    </pre>
+    </p>
+    <p>Курсив и наклонный шрифт при всей их похожести не одно и то же.<br>
+      Курсив это специальный шрифт имитирующий рукописный, наклонный же образуется путем наклона обычных знаков вправо.</p>
+  </section>
+  <section class="slide">
+    <div class="fake-browser-ui">
+      <div class="frame"><span></span><span></span><span></span></div>
+      <div class="body font-style">
+        <div>
+          <h2 style="font-family: Courier;">Котики</h2>
+          <p style="font-family: serif;">Котики - это не только ценный мех, но и достаточно разочарований.</p>
+          <p style="font-family: serif;">Котики - это не только встроенный мурчальник, но и немало человеческого счастья.</p>
+          <p style="font-family: serif;">Котики - это не только испорченная мебель, но и много килограмм пушистого пузика.</p>
+        </div>
+      </div>
+  </section>   
+    
+  <section class="slide">
+    <h2>Наследование</h2>
+    <p>Обратим внимание, что все эти свойства поступают по цепочке от родителя к потомкам: если внутри нашего заголовка будет другой тег(например, ссылка a), то заданные нами свойства автоматически будут работать и для внутреннего тега тоже. Такой механизм называется наследованием.</p>
+    <p>Почему так происходит? Это определяется стандартами, и на самом деле это очень удобно - если бы не было этого механизма, нам бы пришлось следить за всеми тегами, которые вложены, и повторять все стили.</p>
+  </section>
+  <section class="slide">
+    <div class="fake-browser-ui">
+      <div class="frame"><span></span><span></span><span></span></div>
+      <div class="body inheritance">
+        <div>
+          <h2 style="font-family: Courier;">Котики</h2>
+          <p style="font-family: serif;"><strong>Котики</strong> - это не только ценный мех, но и достаточно разочарований.</p>
+          <p style="font-family: serif;"><strong>Котики</strong> - это не только встроенный мурчальник, но и немало человеческого счастья.</p>
+          <p style="font-family: serif;"><strong>Котики</strong> - это не только испорченная мебель, но и много килограмм пушистого пузика.</p>
+        </div>
+      </div>
+  </section>
+  
+  <section class="slide" id="colors">
+    <h2>Цвет текста и фона в CSS</h2>
+    <p>Вернёмся к правилу, перекрашивающему параграфы в красный цвет:</p>
+    <p class="next">
+     <pre>
+      <code class="language-css">
+        p {
+          color: red;
+        }
+    </code>
+    </pre>
+    </p>
+    <p>Существует только <a href="https://colorscheme.ru/html-colors.html" target="
+      ">147 ключевых слов</a>: red, darkred, green, limegreen, blue, skyblue...</p>
+    <p>Что делать, если подходящего ключевого слова нет?</p>
+  </section>  
+   
+  <section class="slide">
+    <h2>Цветовая модель RGB</h2>
+    <img src="i/AdditiveColor.svg.png" style="height: 400px;float: left;">
+    <p>Для браузеров используется RGB модель цветовоспроизведения, где R,G,B - первые буквы основных цветов(красный, зеленый, синий) - и выбор именно
+        этих цветов обусловлен особенностями цветовосприятия человеческого глаза. Согласно этой модели, любой цвет является результатом смешения
+        основных цветов в разных пропорциях.</p>
+  </section>
+    
+  <section class="slide">
+      <h2>Hex-цвета</h2>
+      <img src="i/hex-additive-and-subtractive.png" style="width: 300px; float: left; margin: 0 10px 10px 0;">
+      <p>Цвет можно задать в виде 16-ричного кода.</p>
+      <p>В этом случае цвет представляется в виде 6-ти значного кода #RRGGBB, где RR означает интенсивность красного, GG - интенсивность зеленого, BB -
+          интенсивность синего цвета, согласно модели RGB. Каждая из трех интенсивностей может принимать значения от 0 до 255, и записывается при помощи
+          2х значного 16-ричного кода.
+      <p>
+      <p>Например: <code>color: #000000;</code> - черный цвет, <code>color: #ff00ff;</code> - цвет фуксии.</p>
+
+  </section>
+    
+  <section class="slide">
+      <h2>RGB формат</h2>
+      <p>Также можно задать цвет в rgb-формате: воспользовавшись функцией rgb(r, g, b) где соответственно r, g и b - соответствующие интенсивности
+          красного, зеленого и синего цветов.</p>
+      <p>Например: <code>color: rgb(0,0,0);</code> - черный цвет, color: <code>rgb(255, 0, 255);</code> - цвет фуксии.</p>
+  </section>
+    
+  <section class="slide">
+      <h2>RGBA формат</h2>
+      <p>Но это еще не все: мы можем задать полупрозрачный цвет, воспользовавшись функцией rgba(r,g,b,a), где параметры r,g и b имеют точно такой же
+          смысл, как и в функции rgb, а последний, четвертый параметр “a” может принимать значения от 0 до 1 и означает степень непрозрачности цвета,
+          где 0 - полная прозрачность, 1 - полная непрозрачность.</p>
+      <p><code>color: rgba(0,0,0,0.5)</code> - черный цвет, прозрачный наполовину<br>
+          <code>color: rgba(255,0,255,0.2)</code> - цвет фуксии с 20%-ной непрозрачностью.
+      </p>
+  </section>  
+    
+  <section class="slide">
+      <h2>Код цвета можно подсмотреть</h2>
+      <p>Найти нужный цвет с помощью онлайн-севриса:</p>
+      <img src="i/yandex_rgb.png" style="width: 780px; display: block; margin: 10px auto;">    
+  </section> 
+    
+  <section class="slide">
+      <h2>Код цвета можно подсмотреть</h2>
+      <p>Определить «Пипеткой»:</p>
+      <p style="margin-bottom: 100px;"><img src="i/picker.png" style="width: 220px; float: left; margin: 10px 30px 10px 0;">«Пипетка» в Figma</p>
+      <p><img src="i/photoshop-picker.jpg" style="width: 350px; float: left; margin: 10px 30px 10px 0;">«Пипетка» в Photoshop</p>
+  </section>     
+
+  <section class="slide" id="colors">
+    <h2>Цвет фона</h2>
+    <p>Цвет фона можно задавать в тех же форматах, что и цвет текста.</p>
+    <p class="next">
+     <pre>
+      <code class="language-css  line-numbers">
+      h2 {
+        background-color: lightyellow;
+      }
+      p {
+        background-color: #252850;
+      }
+    </code>
+    </pre>
+    </p>
+  </section>
+
+  <section class="slide">
+    <div class="fake-browser-ui">
+      <div class="frame"><span></span><span></span><span></span></div>
+      <div class="body font-color">
+        <div>
+          <h2 Style="background-color: lightyellow;">Котики</h2>
+          <p Style="background-color: #dbefbf;">Котики - это не только ценный мех, но и достаточно разочарований.</p>
+          <p Style="background-color: #dbefbf;">Котики - это не только встроенный мурчальник, но и немало человеческого счастья.</p>
+          <p Style="background-color: #dbefbf;">Котики - это не только испорченная мебель, но и много килограмм пушистого пузика.</p>
+        </div>
+      </div>
+  </section>
+    
+  <section class="slide chapter" id="cascade">
+    <h2>Комбинации селекторов</h2>
+  </section>
+  <section class="slide">
+    <h2>Комбинации селекторов</h2>
+    <img src="i/cats-css-rev-child.jpg" style="height: 400px;float: left;">
+    <p>В качестве селектора не обязательно может выступать одиночное название тега - чаще всего это комбинации тегов.</p>
+  </section>
+    
+  <section class="slide">
+    <h2>Селектор потомков</h2>
+    <p><code>div strong</code>  - выберет все теги <code>strong</code>, которые расположены внутри <code>div</code> (“все потомки”  - дети, внуки, правнуки, и т.д.) <a target="_blank" href="https://codepen.io/wizjer/pen/bKEadM?editors=1100">Пример</a></p>
+    <div class="fake-browser-ui">
+      <div class="frame"><span></span><span></span><span></span></div>
+      <div class="body successors">
+        <div>
+          <h2>Котики</h2>
+          <p><strong style="color: limegreen;">Котики</strong> - это не только ценный мех, но и достаточно разочарований.</p>
+          <p><strong style="color: limegreen;">Котики</strong> - это не только встроенный мурчальник, но и немало человеческого счастья.</p>
+          <p><strong style="color: limegreen;">Котики</strong> - это не только испорченная мебель, но и много килограмм пушистого пузика.</p>
+          <ul>
+            <li>Все любят <strong style="color: limegreen;">котиков</strong></li>
+            <li><strong style="color: limegreen;">Котики</strong> любят всех</li>
+          </ul>
+        </div>
+        <p><strong>Котики</strong> - это не только ценный мех, но и достаточно разочарований.</p>
+      </div>
+  </section>
+    
+  <section class="slide">
+    <h2>Дочерний селектор</h2>
+    <p><code>div > p</code>  - выберет все теги <code>p</code>, которые расположены внутри <code>div</code> и являются его детьми. <a target="_blank" href="https://codepen.io/wizjer/pen/GGoypv?editors=1100">Пример</a></p>
+  <div class="fake-browser-ui">
+    <div class="frame"><span></span><span></span><span></span></div>
+    <div class="body children">
+      <div>
+        <h2>Котики</h2>
+        <p style="color: limegreen;"><strong>Котики</strong> - это не только ценный мех, но и достаточно разочарований.</p>
+        <p style="color: limegreen;"><strong>Котики</strong> - это не только встроенный мурчальник, но и немало человеческого счастья.</p>
+        <p style="color: limegreen;"><strong>Котики</strong> - это не только испорченная мебель, но и много килограмм пушистого пузика.</p>
+        <ul>
+          <li>Все любят <strong>котиков</strong></li>
+          <li><strong>Котики</strong> любят всех</li>
+        </ul>
+      </div>
+      <p><strong>Котики</strong> - это не только ценный мех, но и достаточно разочарований.</p>
+    </div>
+  </section>    
+  
+  <section class="slide chapter" id="list-properties">
+    <h2>Свойства списков</h2>
+  </section>
+    
+  <section class="slide">
+    <h2>Свойства списков</h2>
+    <p>Для маркированных и нумерованных списков у нас есть несколько специальных свойств, которые не имеет смысла использовать для прочих тегов.</p>
+  </section>
+    
+  <section class="slide">
+    <h2>Тип маркера</h2>
+    <p><code>list-style-type</code> - позволяет задать тип маркера</p>
+    <p>Для маркированных списков доступы следующие значения:</p>
+    <div class="fake-browser-ui">
+        <div class="frame"><span></span><span></span><span></span></div>
+        <div class="body">
+            <ul>
+                <li class="disc"><code>disc</code> - Заполненный кружок(значение по умолчанию)</li>
+                <li class="circle"><code>circle</code> - Пустой кружок</li>
+                <li class="square"><code>square</code>Квадрат</li>
+            </ul>
+        </div>
+    </div>
+  </section>
+    
+  <section class="slide">
+    <p>Для нумерованных списков доступы следующие значения:</p>
+    <div class="fake-browser-ui">
+        <div class="frame"><span></span><span></span><span></span></div>
+        <div class="body">
+            <ol>
+                <li class="decimal"><code>decimal</code> арабские цифры(значение по умолчанию)</li>
+                <li class="lower-roman"><code>lower-roman</code> - строчные римские цифры, например i , ii , iii и т.д.</li>
+                <li class="upper-roman"><code>upper-roman</code> - заглавные римские цифры, I, II , III и т.д.</li>
+                <li class="lower-alpha"><code>lower-alpha</code> - строчные буквы латинского алфавита, a, b, c и т.д</li>
+                <li class="upper-alpha"><code>upper-alpha</code> - заглавные буквы латинского алфавита A, B, C и т.д.</li>
+            </ol>
+        </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>Картинка в качестве маркера</h2>
+    <p><code>list-style-image</code> - свойство позволяет установить любую картинку в качестве символа маркера</p>
+    <pre>
+      <code class="language-css  line-numbers">
+      .list{
+        list-style-image: url("../i/galochka.png");
+      }
+      .list{
+        list-style-image: url("http://somewebsite.ru/images/galochka.png");
+      }
+    </code>
+    </pre>
+    <div class="fake-browser-ui">
+        <div class="frame"><span></span><span></span><span></span></div>
+        <div class="body list-style-image">
+            <ul class="list">
+                <li>Пункт 1</li>
+                <li>Пункт 2</li>
+                <li>Пункт 3</li>
+            </ul>
+        </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>Маркер внутри или снаружи списка</h2>
+    <p><code>list-style-position</code> - позволяет указать положение маркера списка.<p><code>outside</code> для положения снаружи(является значением по умолчанию),<br><code>inside</code> - внутри.</p>
+  </section>
+
+  <section class="slide">
+      <div class="fake-browser-ui">
+          <div class="frame"><span></span><span></span><span></span></div>
+          <div class="body">
+              <p>Обычный текст</p>
+              <ul class="list-outside">
+                  <li>Список с значением list-style-position: outside</li>
+                  <li>Список с значением list-style-position: outside</li>
+                  <li>Список с значением list-style-position: outside</li>
+              </ul>
+              <p>Обычный текст</p>
+              <ul class="list-inside">
+                  <li>Список с значением list-style-position: inside</li>
+                  <li>Список с значением list-style-position: inside</li>
+                  <li>Список с значением list-style-position: inside</li>
+              </ul>
+          </div>
+      </div>
+  </section>  
+
+  <section class="slide chapter" id="tasks">
+    <h2>Решение задач</h2>
+  </section>
+  <section class="slide">
+    <h2>Задача</h2>
+    <p>Стоматологическая клиника хочет стильный яркий сайт, у них уже есть готовая разметка, и нужно позаботиться о стилях для нее:</p>
+    <script type="text/plain" class="lang-markup  language-html  line-numbers small">
+      <section>
+        <h1>Я рад приветствовать вас в нашей стоматологической клинике!</h1>
+        <p>Вся моя жизнь связана со стоматологией. 11 лет назад я открыл в Москве <span>детскую стоматологию</span> – мы первыми начали лечить детей по мировым западным протоколам: качественно и надежно, как взрослых. И стали лидерами среди детских стоматологий в России!</p>
+        <p>Родители наших маленьких пациентов просили нас лечить и их самих - так же нежно и терпеливо, как детей. И мы открыли <span>взрослые стоматологические отделения</span>. Мы предлагаем нашим пациентам все самое лучшее, что есть в стоматологии на сегодня.</p>
+        <h2>Мы предлагаем:</h2>
+        <ul>
+          <li>Лечение зубов по мировым стандартам</li>
+          <li>Безопасное оборудование для диагностики</li>
+          <li>Протезирование любой сложности:
+              <ul>
+                  <li>микропротезирование <span>вкладками</span></li>
+                  <li>все виды <span>коронок</span></li>
+                  <li>любые съемные и несъемные <span>протезы</span></li>
+                  <li><span>виниры</span> и <span>люмиры</span></li>
+              </ul>
+          </li>
+        </ul>
+      </section>
+    </script>
+
+  </section>
+  <section class="slide">
+    <h2>Задания:</h2>
+    <p>Сделать заголовок <code>h1</code> зеленым и курсивным</p>
+    <ul>
+      <li>Какой селектор будет достаточным ? <span class="next accent"><code>h1</code></span></li>
+      <li>С помощью какого свойства и значения мы можем поменять цвет и начертание?
+        <span class="next accent"><code>color: green;</code></span>
+        <span class="next accent"><code>font-style: italic;</code></span></li>
+    </ul>
+  </section>
+  <section class="slide">
+    <h2>Задания:</h2>
+    <p>Увеличить элементы списка "мы предлагаем", являющимися детьми, до размера 20px, установить в качесте маркера квадратики, при этом "внуки" (протезирование) уменьшить до 14px, сделать жирными, а в качестве маркера установить пустые кружки.</p>
+    <ul>
+      <li>Какой селектор будет достаточным для того, чтобы выбрать элементы списка "мы предлагаем"? <span class="next accent"><code>ul li</code></span></li>
+      <li>С помощью какого свойства и значения мы можем задать нужный размер шрифта?
+        <span class="next accent"><code>font-size: 20px;</code></span></li>
+      <li>С помощью какого свойства и значения мы можем задать маркеры в форме квадратиков?
+        <span class="next accent"><code>list-style-type: square;</code></span></li>
+    </ul>
+  </section>
+  <section class="slide">
+    <h2>Задания:</h2>
+    <p>Увеличить элементы списка "мы предлагаем", являющимися детьми, до размера 20px, установить в качесте маркера квадратики, при этом "внуки" (протезирование) уменьшить до 14px, сделать жирными, а в качестве маркера установить пустые кружки.</p>
+    <ul>
+      <li>Какой селектор будет достаточным для того, чтобы выбрать элементы списка "протезирование"?
+        <span class="next accent"><code>ul ul li</code></span></li>
+      <li>С помощью каких свойств и значений мы можем изменить размер и жирность текста?
+        <span class="next accent"><code>font-size: 14px;</code></span>
+        <span class="next accent"><code>font-weight: bold;</code></span>
+      </li>
+      <li>С помощью какого свойств и значения мы можем задать маркеры в форме пустых кружков?
+        <span class="next accent"><code>list-style-type: circle;</code></span>
+      </li>      
+    </ul>
+  </section>
+  <section class="slide">
+    <h2>Задания:</h2>
+    <p>Сделать текст "детскую стоматологию" и "взрослые стоматологические отделения" белого цвета на красном фоне и курсивными</p>
+    <ul>
+      <li>Какой селектор будет достаточным ? <span class="next accent"><code>p > span</code> или <code>p span</code></span></li>
+      <li>С помощью каких свойств и значений мы можем поменять цвет фона, цвет шрифта и начертание?
+        <span class="next accent"><code>background-color: red;</code></span>
+        <span class="next accent"><code>color: white;</code></span>
+        <span class="next accent"><code>font-style: italic;</code></span></li>
+    </ul>
+  </section>    
+    
+  <section class="slide">
+    <h2>Подведем итоги</h2>
+    <p>Мы умеем:</p>
+    <ol>
+      <li>Составлять селектор, чтобы добраться до нужных элементов;</li>
+      <li>Управлять свойствами шрифта: размер, начертание, цвет, семейство, фон;</li>
+      <li>Управлять свойствами списков: форма и положение маркера.</li>
+    </ol>
+  </section>        
+    
+  <section class="slide last">
+      <p class="thanx">Задавайте вопросы и напишите отзыв о лекции!</p>
+      <address>Татьяна Тен</address>
+      <ul class="contacts">
+          <li><a href="mailto:"><i class="fa fa-envelope-o" aria-hidden="true"></i>tt@webcoalition.ru</a></li>
+          <li><a href="https:"><i class="fa fa-facebook" aria-hidden="true"></i>tanya.ten10</a></li>
+      </ul>
+  </section>
+
+<div class="progress"></div>
+<script src="node_modules/shower-core/shower.min.js"></script>
+<script src="js/prism.js?v=2"></script>
+<script src="https://use.fontawesome.com/30b5a52164.js"></script>
+</body>
+</html>
