@@ -51,7 +51,7 @@
 
   <section class="slide" id="roadmap">
     <h2>План занятия</h2>
-    <ol>
+    <ol style="font-size: 90%;">
       <li><a href="#begin">Селекторы и свойства: введение</a>
         <ul>
           <li><a href="#what">Что такое CSS?</a></li>
@@ -66,8 +66,8 @@
         </ul>
       </li>
       <li><a href="#colors">Цвет текста и фона в CSS</a>
-      <li><a href="#cascade">Комбинации селекторов</a></li>
       <li><a href="#list-properties">Свойства списков</a></li>
+      <li><a href="#cascade">Комбинации селекторов</a></li>      
     </ol>
   </section>  
 
@@ -118,7 +118,7 @@
     <p>В терминах CSS это - правило.</p>
     <p>Его составные части:</p>
     <ul>
-      <li>селектор(<code>strong</code>) - указание к  каким тегам применяются указанные в правиле стили;</li>
+      <li>селектор(<code>p</code>) - указание к  каким тегам применяются указанные в правиле стили;</li>
       <li>пары "свойство : значение" разделенных двоеточием и обязательно заканчивающихся точкой с запятой. Обязательно заключаются в фигурные скобки.</li>
     </ul>
   </section>
@@ -240,8 +240,8 @@
     </code>
     </pre>
     </p>
-    <p>Курсив и наклонный шрифт при всей их похожести не одно и то же.<br>
-      Курсив это специальный шрифт имитирующий рукописный, наклонный же образуется путем наклона обычных знаков вправо.</p>
+    <p><img src="i/oblique-italic.jpg" style="width: 270px; float: left; margin: 10px 30px 50px 0">Курсив и наклонный шрифт не одно и то же.<br>
+      Курсив это специальный шрифт, имитирующий рукописный, наклонный же образуется путем наклона обычных знаков вправо.</p>
   </section>
   <section class="slide">
     <div class="fake-browser-ui">
@@ -260,31 +260,41 @@
     <h2>font-family</h2>
     <p>Задает семейство шрифта.</p>
     <p class="next">
-     <pre>
-      <code class="language-css  line-numbers">
-      h2 {
-        font-family: Courier;
-      }
-      p {
-        font-family: serif; //с засечками
-      }
-    </code>
-    </pre>
+      <pre>
+        <code class="language-css  line-numbers">
+        h2 {
+          font-family: Courier;
+        }
+        p {
+          font-family: serif; //с засечками
+        }
+        </code>
+      </pre>
     </p>
-    <p>Курсив и наклонный шрифт при всей их похожести не одно и то же.<br>
-      Курсив это специальный шрифт имитирующий рукописный, наклонный же образуется путем наклона обычных знаков вправо.</p>
   </section>
+
   <section class="slide">
     <div class="fake-browser-ui">
       <div class="frame"><span></span><span></span><span></span></div>
-      <div class="body font-style">
-        <div>
-          <h2 style="font-family: Courier;">Котики</h2>
-          <p style="font-family: serif;">Котики - это не только ценный мех, но и достаточно разочарований.</p>
-          <p style="font-family: serif;">Котики - это не только встроенный мурчальник, но и немало человеческого счастья.</p>
-          <p style="font-family: serif;">Котики - это не только испорченная мебель, но и много килограмм пушистого пузика.</p>
+        <div class="body font-style">
+          <div>
+            <h2 style="font-family: Courier;">Котики</h2>
+            <p style="font-family: serif;">Котики - это не только ценный мех, но и достаточно разочарований.</p>
+            <p style="font-family: serif;">Котики - это не только встроенный мурчальник, но и немало человеческого счастья.</p>
+            <p style="font-family: serif;">Котики - это не только испорченная мебель, но и много килограмм пушистого пузика.</p>
+          </div>
         </div>
       </div>
+      <pre>
+        <code class="language-css  line-numbers">
+        h2 {
+          font-family: Courier;
+        }
+        p {
+          font-family: serif;
+        }
+        </code>
+      </pre>      
   </section>   
     
   <section class="slide">
@@ -297,19 +307,27 @@
       <div class="frame"><span></span><span></span><span></span></div>
       <div class="body inheritance">
         <div>
-          <h2 style="font-family: Courier;">Котики</h2>
-          <p style="font-family: serif;"><strong>Котики</strong> - это не только ценный мех, но и достаточно разочарований.</p>
-          <p style="font-family: serif;"><strong>Котики</strong> - это не только встроенный мурчальник, но и немало человеческого счастья.</p>
-          <p style="font-family: serif;"><strong>Котики</strong> - это не только испорченная мебель, но и много килограмм пушистого пузика.</p>
+          <h2>Котики</h2>
+          <p style="font-style: italic;"><strong>Котики</strong> - это не только ценный мех, но и достаточно разочарований.</p>
+          <p style="font-style: italic;"><strong>Котики</strong> - это не только встроенный мурчальник, но и немало человеческого счастья.</p>
+          <p style="font-style: italic;"><strong>Котики</strong> - это не только испорченная мебель, но и много килограмм пушистого пузика.</p>
         </div>
       </div>
+    </div>
+    <pre>
+      <code class="language-css">
+        p {
+          font-style: italic;
+        }
+      </code>
+    </pre>
   </section>
   
   <section class="slide" id="colors">
     <h2>Цвет текста и фона в CSS</h2>
     <p>Вернёмся к правилу, перекрашивающему параграфы в красный цвет:</p>
     <p class="next">
-     <pre>
+    <pre>
       <code class="language-css">
         p {
           color: red;
@@ -387,8 +405,8 @@
     </code>
     </pre>
     </p>
-  </section>
-
+  </section> 
+    
   <section class="slide">
     <div class="fake-browser-ui">
       <div class="frame"><span></span><span></span><span></span></div>
@@ -400,57 +418,19 @@
           <p Style="background-color: #dbefbf;">Котики - это не только испорченная мебель, но и много килограмм пушистого пузика.</p>
         </div>
       </div>
-  </section>
-    
-  <section class="slide chapter" id="cascade">
-    <h2>Комбинации селекторов</h2>
-  </section>
-  <section class="slide">
-    <h2>Комбинации селекторов</h2>
-    <img src="i/cats-css-rev-child.jpg" style="height: 400px;float: left;">
-    <p>В качестве селектора не обязательно может выступать одиночное название тега - чаще всего это комбинации тегов.</p>
-  </section>
-    
-  <section class="slide">
-    <h2>Селектор потомков</h2>
-    <p><code>div strong</code>  - выберет все теги <code>strong</code>, которые расположены внутри <code>div</code> (“все потомки”  - дети, внуки, правнуки, и т.д.) <a target="_blank" href="https://codepen.io/wizjer/pen/bKEadM?editors=1100">Пример</a></p>
-    <div class="fake-browser-ui">
-      <div class="frame"><span></span><span></span><span></span></div>
-      <div class="body successors">
-        <div>
-          <h2>Котики</h2>
-          <p><strong style="color: limegreen;">Котики</strong> - это не только ценный мех, но и достаточно разочарований.</p>
-          <p><strong style="color: limegreen;">Котики</strong> - это не только встроенный мурчальник, но и немало человеческого счастья.</p>
-          <p><strong style="color: limegreen;">Котики</strong> - это не только испорченная мебель, но и много килограмм пушистого пузика.</p>
-          <ul>
-            <li>Все любят <strong style="color: limegreen;">котиков</strong></li>
-            <li><strong style="color: limegreen;">Котики</strong> любят всех</li>
-          </ul>
-        </div>
-        <p><strong>Котики</strong> - это не только ценный мех, но и достаточно разочарований.</p>
-      </div>
-  </section>
-    
-  <section class="slide">
-    <h2>Дочерний селектор</h2>
-    <p><code>div > p</code>  - выберет все теги <code>p</code>, которые расположены внутри <code>div</code> и являются его детьми. <a target="_blank" href="https://codepen.io/wizjer/pen/GGoypv?editors=1100">Пример</a></p>
-  <div class="fake-browser-ui">
-    <div class="frame"><span></span><span></span><span></span></div>
-    <div class="body children">
-      <div>
-        <h2>Котики</h2>
-        <p style="color: limegreen;"><strong>Котики</strong> - это не только ценный мех, но и достаточно разочарований.</p>
-        <p style="color: limegreen;"><strong>Котики</strong> - это не только встроенный мурчальник, но и немало человеческого счастья.</p>
-        <p style="color: limegreen;"><strong>Котики</strong> - это не только испорченная мебель, но и много килограмм пушистого пузика.</p>
-        <ul>
-          <li>Все любят <strong>котиков</strong></li>
-          <li><strong>Котики</strong> любят всех</li>
-        </ul>
-      </div>
-      <p><strong>Котики</strong> - это не только ценный мех, но и достаточно разочарований.</p>
     </div>
-  </section>    
-  
+    <pre>
+      <code class="language-css  line-numbers">
+        h2 {
+          background-color: lightyellow;
+        }
+        p {
+          background-color: #252850;
+        }
+      </code>
+    </pre>
+  </section>
+    
   <section class="slide chapter" id="list-properties">
     <h2>Свойства списков</h2>
   </section>
@@ -495,6 +475,16 @@
   <section class="slide">
     <h2>Картинка в качестве маркера</h2>
     <p><code>list-style-image</code> - свойство позволяет установить любую картинку в качестве символа маркера</p>
+    <div class="fake-browser-ui" style="margin-bottom: 1em;">
+        <div class="frame"><span></span><span></span><span></span></div>
+        <div class="body list-style-image">
+            <ul class="list" style="margin: 0; font-size: 70%;">
+                <li>Пункт 1</li>
+                <li>Пункт 2</li>
+                <li>Пункт 3</li>
+            </ul>
+        </div>
+    </div>
     <pre>
       <code class="language-css  line-numbers">
       .list{
@@ -504,17 +494,7 @@
         list-style-image: url("http://somewebsite.ru/images/galochka.png");
       }
     </code>
-    </pre>
-    <div class="fake-browser-ui">
-        <div class="frame"><span></span><span></span><span></span></div>
-        <div class="body list-style-image">
-            <ul class="list">
-                <li>Пункт 1</li>
-                <li>Пункт 2</li>
-                <li>Пункт 3</li>
-            </ul>
-        </div>
-    </div>
+    </pre>    
   </section>
 
   <section class="slide">
@@ -542,6 +522,57 @@
       </div>
   </section>  
 
+  <section class="slide chapter" id="cascade">
+    <h2>Комбинации селекторов</h2>
+  </section>
+  <section class="slide">
+    <h2>Комбинации селекторов</h2>
+    <img src="i/cats-css-rev-child.jpg" style="height: 400px;float: left;">
+    <p>В качестве селектора не обязательно может выступать одиночное название тега - чаще всего это комбинации тегов.</p>
+  </section>
+    
+  <section class="slide">
+    <h2>Селектор потомков</h2>
+    <p><code>div strong</code>  - выберет все теги <code>strong</code>, которые расположены внутри <code>div</code> (“все потомки”  - дети, внуки, правнуки, и т.д.) <a target="_blank" href="https://codepen.io/wizjer/pen/bKEadM?editors=1100">Пример</a></p>
+    <div class="fake-browser-ui">
+      <div class="frame"><span></span><span></span><span></span></div>
+      <div class="body successors">
+        <div>
+          <h2>Котики</h2>
+          <p><strong style="color: limegreen;">Котики</strong> - это не только ценный мех, но и достаточно разочарований.</p>
+          <p><strong style="color: limegreen;">Котики</strong> - это не только встроенный мурчальник, но и немало человеческого счастья.</p>
+          <p><strong style="color: limegreen;">Котики</strong> - это не только испорченная мебель, но и много килограмм пушистого пузика.</p>
+          <ul>
+            <li>Все любят <strong style="color: limegreen;">котиков</strong></li>
+            <li><strong style="color: limegreen;">Котики</strong> любят всех</li>
+          </ul>
+        </div>
+        <p><strong>Котики</strong> - это не только ценный мех, но и достаточно разочарований.</p>
+      </div>
+    </div>
+  </section>
+    
+  <section class="slide">
+    <h2>Дочерний селектор</h2>
+    <p><code>div > p</code>  - выберет все теги <code>p</code>, которые расположены внутри <code>div</code> и являются его детьми. <a target="_blank" href="https://codepen.io/wizjer/pen/GGoypv?editors=1100">Пример</a></p>
+    <div class="fake-browser-ui">
+      <div class="frame"><span></span><span></span><span></span></div>
+      <div class="body children">
+        <div>
+          <h2>Котики</h2>
+          <p style="color: limegreen;"><strong>Котики</strong> - это не только ценный мех, но и достаточно разочарований.</p>
+          <p style="color: limegreen;"><strong>Котики</strong> - это не только встроенный мурчальник, но и немало человеческого счастья.</p>
+          <p style="color: limegreen;"><strong>Котики</strong> - это не только испорченная мебель, но и много килограмм пушистого пузика.</p>
+          <ul>
+            <li>Все любят <strong>котиков</strong></li>
+            <li><strong>Котики</strong> любят всех</li>
+          </ul>
+        </div>
+        <p><strong>Котики</strong> - это не только ценный мех, но и достаточно разочарований.</p>
+      </div>
+    </div>
+  </section>    
+
   <section class="slide chapter" id="tasks">
     <h2>Решение задач</h2>
   </section>
@@ -568,34 +599,43 @@
         </ul>
       </section>
     </script>
-
   </section>
+
   <section class="slide">
     <h2>Задания:</h2>
     <p>Сделать заголовок <code>h1</code> зеленым и курсивным</p>
     <ul>
-      <li>Какой селектор будет достаточным ? <span class="next accent"><code>h1</code></span></li>
+      <li>Какой селектор будет достаточным?</li>
+      <li>С помощью какого свойства и значения мы можем поменять цвет и начертание?</li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <h2>Задания:</h2>
+    <p>Сделать заголовок <code>h1</code> зеленым и курсивным</p>
+    <ul>
+      <li>Какой селектор будет достаточным? <span class="next accent"><code>h1</code></span></li>
       <li>С помощью какого свойства и значения мы можем поменять цвет и начертание?
         <span class="next accent"><code>color: green;</code></span>
         <span class="next accent"><code>font-style: italic;</code></span></li>
     </ul>
   </section>
+
   <section class="slide">
     <h2>Задания:</h2>
-    <p>Увеличить элементы списка "мы предлагаем", являющимися детьми, до размера 20px, установить в качесте маркера квадратики, при этом "внуки" (протезирование) уменьшить до 14px, сделать жирными, а в качестве маркера установить пустые кружки.</p>
+    <p>Уменьшить элементы списка «Протезирование любой сложности» до 14px, сделать жирными, а в качестве маркера установить пустые кружки.</p>
     <ul>
-      <li>Какой селектор будет достаточным для того, чтобы выбрать элементы списка "мы предлагаем"? <span class="next accent"><code>ul li</code></span></li>
-      <li>С помощью какого свойства и значения мы можем задать нужный размер шрифта?
-        <span class="next accent"><code>font-size: 20px;</code></span></li>
-      <li>С помощью какого свойства и значения мы можем задать маркеры в форме квадратиков?
-        <span class="next accent"><code>list-style-type: square;</code></span></li>
+      <li>Какой селектор будет достаточным для того, чтобы выбрать элементы списка «протезирование»?</li>
+      <li>С помощью каких свойств и значений мы можем изменить размер и жирность текста?</li>
+      <li>С помощью какого свойств и значения мы можем задать маркеры в форме пустых кружков?</li>      
     </ul>
   </section>
+
   <section class="slide">
     <h2>Задания:</h2>
-    <p>Увеличить элементы списка "мы предлагаем", являющимися детьми, до размера 20px, установить в качесте маркера квадратики, при этом "внуки" (протезирование) уменьшить до 14px, сделать жирными, а в качестве маркера установить пустые кружки.</p>
+    <p>Уменьшить элементы списка «Протезирование любой сложности» до 14px, сделать жирными, а в качестве маркера установить пустые кружки.</p>
     <ul>
-      <li>Какой селектор будет достаточным для того, чтобы выбрать элементы списка "протезирование"?
+      <li>Какой селектор будет достаточным для того, чтобы выбрать элементы списка «протезирование»?
         <span class="next accent"><code>ul ul li</code></span></li>
       <li>С помощью каких свойств и значений мы можем изменить размер и жирность текста?
         <span class="next accent"><code>font-size: 14px;</code></span>
@@ -606,23 +646,13 @@
       </li>      
     </ul>
   </section>
-  <section class="slide">
-    <h2>Задания:</h2>
-    <p>Сделать текст "детскую стоматологию" и "взрослые стоматологические отделения" белого цвета на красном фоне и курсивными</p>
-    <ul>
-      <li>Какой селектор будет достаточным ? <span class="next accent"><code>p > span</code> или <code>p span</code></span></li>
-      <li>С помощью каких свойств и значений мы можем поменять цвет фона, цвет шрифта и начертание?
-        <span class="next accent"><code>background-color: red;</code></span>
-        <span class="next accent"><code>color: white;</code></span>
-        <span class="next accent"><code>font-style: italic;</code></span></li>
-    </ul>
-  </section>    
     
   <section class="slide">
     <h2>Подведем итоги</h2>
     <p>Мы умеем:</p>
     <ol>
       <li>Составлять селектор, чтобы добраться до нужных элементов;</li>
+      <li>Писать CSS-правила;</li>
       <li>Управлять свойствами шрифта: размер, начертание, цвет, семейство, фон;</li>
       <li>Управлять свойствами списков: форма и положение маркера.</li>
     </ol>

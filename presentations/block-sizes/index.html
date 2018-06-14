@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Управление блоками в потоке</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-16x10.css">
+    <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/prism-fix.css">
+    <link rel="stylesheet" href="css/netology.css">
+    <link rel="stylesheet" href="css/fake-browser.css">
+
+    <style>
+        pre {
+            font-size: 70%;
+        }
+
+        .demo {
+            font-size: 50%;
+            float: right;
+        }
+
+        .accent {
+            color: #48bc36;
+        }
+    </style>
+</head>
+<body class="shower list">
+  <header class="caption">
+      <h1>Управление блоками в потоке</h1>
+      <p>Александр Беспоясов, Ведущий фронтенд-разработчик в www.media-storm.ru</p>
+  </header>
+
+  <section class="slide" id="cover">
+      <h2>Управление блоками в потоке</h2>
+      <p style="font-size: 20px;">
+          <img src="i/ab.jpeg" alt="" class="avatar">
+          Александр Беспоясов <span class="position">Ведущий фронтенд-разработчик в www.media-storm.ru</span>
+      </p>
+  </section>
+  <section class="slide author" id="author" style="padding-top: 110px;">
+      <img src="i/ab.jpeg" alt="">
+      <h1>Александр Беспоясов</h1>
+      <p class="position">Ведущий фронтенд-разработчик в www.media-storm.ru</p>
+  </section>
+
+  <section class="slide" id="roadmap">
+    <h2>План занятия</h2>
+    <ol>
+      <li><a href="#sizes">Размеры элементов</a>
+        <ul>
+          <li><a href="#width">Ширина – width</a></li>
+          <li><a href="#height">Высота – height</a></li>
+        </ul>
+      </li>
+      <li><a href="#indents">Отступы элементов</a>
+        <ul>
+          <li><a href="#margin">Внешние отступы – margin</a></li>
+          <li><a href="#padding">Поля – padding</a></li>
+        </ul>
+      </li>
+      <li><a href="#borders">Рамки</a>
+      <li><a href="#vertical">Вертикальное выравнивание</a></li>      
+    </ol>
+  </section>  
+
+  <section class="slide chapter" id="sizes">
+    <h2>Размеры элементов</h2>
+  </section>
+  
+  <section class="slide">
+    <h2>Все элементы имеют размеры</h2>
+    <img src="i/sizes.jpg" style="width: 100%">
+  </section>
+  
+  <section class="slide">
+    <h2>Все элементы имеют размеры</h2>
+    <img src="i/sizes-everywhere.jpg" style="width: 100%">
+  </section>  
+
+  <section class="slide" id="width">
+    <h2>Ширина блочных элементов</h2>
+    <img src="i/blocks-image.jpg" style="float: left; margin: 10px 30px 130px 0px; width: 30%;">
+    <p>Браузер устанавливает ширину элементов автоматически, в зависимости от их типа или размера их содержимого.</p>
+    <p>Для таких элементов как заголовки, параграфы, списки, <code>div</code>, <code>section</code> устанавливается максимально доступная ширина.</p>
+    <p><strong>Это <a href="http://htmlbook.ru/html/type/block">блочные элементы</a>.</strong></p>    
+  </section>    
+  
+  <section class="slide">
+    <h2>Ширина блочных элементов</h2>
+    
+    <h6 style="font-size: 0.8em; background-color: lightgreen;">&lt;h1&gt;Заголовок занимает всю ширину, даже если текста внутри мало.&lt;/h1&gt;</h4>
+    <p style="font-size: 0.8em; background-color: yellow;">&lt;p&gt;Также ведёт себя и параграф.&lt;/p&gt;</p>
+    <div style="font-size: 0.8em; background-color: lightblue;">&lt;div&gt;Верно это и в отношении <code>div</code>.&lt;/div&gt;</div>
+    <section style="font-size: 0.8em; background-color: pink;">&lt;section&gt;И для <code>section</code>.&lt;/section&gt;</section>
+    
+    <pre style="font-size: 0.55em; margin-top: 30px;">
+      <code class="language-css  line-numbers">
+        h1 {
+          background-color: lightgreen;
+        }
+        p {
+          background-color: yellow;
+        }
+        div {
+          background-color: lightblue;
+        }
+        section {
+          background-color: pink;
+        }
+      </code>
+    </pre>    
+  </section> 
+  
+  <section class="slide">
+    <h2>Ширина строчных элементов</h2>
+    <img src="i/inline-image.jpg" style="float: left; margin: 10px 30px 130px 0px; width: 25%;">
+    <p>Для элементов внутри текста, таких, как <code>a</code>, <code>strong</code>, <code>em</code>, <code>span</code> ширина устанавливается в соответствии с размером их содержимого.</p>
+    <p><strong>Это <a href="http://htmlbook.ru/html/type/inline">строчные (inline) элементы</a>.</strong></p>    
+
+  </section>   
+
+  <section class="slide">
+    <h2>Ширина строчных элементов</h2>
+    <p style="background-color: skyblue;">У элементов внутри текста, <a href="#" style="background-color: orange;">какими бы они ни были, пусть бы даже были такими огромными и многословными, что занимали бы целую строчку, а, может быть, даже и две, а там, глядишь, и целых три</a>, размер будет ровно таким, какой <strong style="background-color: coral;">размер у содержимого</strong>.</p>
+    <pre style="font-size: 0.55em; margin-top: 30px;">
+      <code class="language-css  line-numbers">
+        p {
+          background-color: skyblue;
+        }
+
+        a {
+          background-color: orange;
+        }
+
+        strong {
+          background-color: coral;
+        }
+      </code>
+    </pre>    
+  </section>   
+  
+  <section class="slide">
+    <h2>Управление шириной</h2>
+    <p>Свойство <code>width</code> устанавливает ширину содержимого внутри элемента.</p>
+    <p>Можно управлять шириной всех элементов, кроме строчных и строк в таблице.</p>
+    <p>Значение можно задать:</p>
+    <ul>
+      <li>В пикселях;</li>
+      <li>В процентах;</li>
+      <li>Автоматически;</li>
+    </ul>
+  </section>
+  
+  <section class="slide">
+    <h2>Ширина в пикселях</h2>
+    <p>Простой способ задать конкретный размер: <code>width: 300px;</code></p>
+    <p>Может быть только положительным числом.</p>
+    
+    <img src="i/break.jpg" style="width: 300px; float: left; margin: 30px 30px 10px 0;">
+    
+    <pre style="margin-top: 30px;">
+      <code class="language-css  line-numbers">
+        img {
+          width: 300px;
+        }
+      </code>
+    </pre>      
+  </section>  
+  
+  <section class="slide">
+    <h2>Ширина в процентах</h2>
+    <p><code>width: 50%;</code></p>
+    <p>Ширина будет вычисляться в зависимости от ширины родительского элемента, если родительского элемента нет, то будет вычисляться от ширины окна браузера.</p>
+    
+    <section style="font-size: 0.55em; background-color: limegreen; margin-top: 10px;">&lt;section&gt;
+    <p style="background-color: yellow; width: 50%;">&lt;p&gt;&lt;/p&gt;</p>
+      &lt;/section&gt;</section>
+    
+    <pre style="font-size: 0.55em; margin-top: 30px;">
+      <code class="language-css  line-numbers">
+        p {
+          width: 50%;
+          background-color: yellow;
+        }
+        section {
+          background-color: limegreen;
+        }        
+      </code>
+    </pre>      
+  </section>    
+  
+  <section class="slide">
+    <h2>Ширина по умолчанию</h2>
+    <p><code>width: auto;</code></p>
+    <p>Ширина будет устанавливаться в зависимости от типа элемента и содержимого внутри элемента, является значением по умолчанию.</p>
+    
+    <section style="font-size: 0.55em; background-color: limegreen; margin-top: 10px;">&lt;section&gt;
+    <p style="background-color: yellow; width: auto;">&lt;p&gt;&lt;/p&gt;</p>
+      &lt;/section&gt;</section>    
+    
+    <pre style="font-size: 0.55em; margin-top: 30px;">
+      <code class="language-css  line-numbers">
+        p {
+          width: auto;
+          background-color: yellow;
+        }
+        section {
+          background-color: limegreen;
+        }        
+      </code>
+    </pre>      
+  </section>   
+  
+  <section class="slide" id="height">
+    <h2>Высота элементов</h2>
+    <p>Браузер устанавливает высоту элементов автоматически, всегда в зависимости размера их содержимого.</p>
+    <p>Высоту тоже можно задать фиксированно, несмотря на объём содержимого внутри элемента. <strong>Однако делать это не рекомендуется.</strong> Почему? Давайте разбираться.</p>
+  </section>   
+  
+  <section class="slide">
+    <h2>Высота в пикселях</h2>
+    <p><code>height: 100px;</code></p>
+    <p>Может быть только положительным числом.</p>    
+    
+    <img src="i/poor-break.jpg" style="width: 300px; height: 300px; float: left; margin: 30px 30px 10px 0;">
+    
+    <pre style="margin-top: 30px;">
+      <code class="language-css  line-numbers">
+        img {
+          width: 300px;
+          height: 300px;
+        }
+      </code>
+    </pre>
+    
+  </section>  
+  
+  <section class="slide">
+    <h2>Высота в процентах</h2>
+    <p><code>height: 50%;</code></p>
+    <p>Высота будет вычисляться от высоты родительского элемента, <strong>только если она прямо задана.</strong> Если высота родителя не задана, высота ребёнка, заданная в процентах, будет проигнорирована.</p>
+  </section>    
+  
+  <section class="slide">
+    <h2>Высота по умолчанию</h2>
+    <p><code>height: auto;</code></p>
+    <p>Высота будет устанавливаться в зависимости от содержимого внутри элемента, является значением по умолчанию.</p>      
+  </section>   
+  
+  <section class="slide">
+    <h2>Проблемная высота</h2>
+    <img src="i/height-trouble.png" style="float: left; margin: 0 30px 130px 0px; width: 15%;">
+    <pre style="font-size: 0.55em; margin-top: 30px;">
+      <code class="language-css  line-numbers">
+        div {
+          background-color: lightblue;
+          height: 300px;
+        }       
+      </code>
+    </pre>      
+    <p>Если задать фиксированное значение для высоты, то высота элемента будет постоянной, а вот содержимое элемента будет вынуждено отображаться поверх него.</p>
+    <p>Нельзя угадать, сколько текста будет на странице. Поэтому в вёрстке высоту почти никогда не ограничивают.</p>
+  </section>    
+  
+  <section class="slide chapter" id="indents">
+    <h2>Отступы элементов</h2>
+  </section>  
+
+  <section class="slide">
+    <h2>Отступы элементов</h2>
+    <p>Существуют внешние отступы (между элементами) и внутренние отступы (поля).</p>
+    <p>Внешние отступы задаются свойством <code>margin</code>. 
+    <p>Поля — свойством <code>padding</code>.</p>
+  </section>   
+
+  <section class="slide">
+    <h2>Отступы элементов</h2>
+    <img src="i/margin-padding.png" style="width: 70%; display: block; margin: 10px auto;">
+  </section>   
+  
+  <section class="slide" id="margin">
+    <h2>Внешние отступы</h2>
+    <p>Внешние отступы — это отступы от внешней границы элемента до границ родительского элемента или до соседних элементов.</p>
+    <p>Для применения внешнего отступа используется свойство <code>margin</code> с указанием от какой границ отступать – <code>margin-top</code>, <code>margin-right</code>, <code>margin-bottom</code>, <code>margin-left</code>.</p>
+  </section>
+  
+  <section class="slide">
+    <h2>Внешние отступы</h2>
+    <p>Для того, чтобы указывать все отступы сразу, мы можем написать одно свойство <code>margin</code> и объединить в нём все отступы. Свойство может принимать 1, 2, 3 и 4 значения.</p>
+    <p><code>Margin: 10px;</code> свойство с одним значением применит ко всем границам одинаковый отступ.</p>
+    <p><code>Margin: 10px 20px;</code> применит отступ в 10px для верхнего и нижнего края, а отступ в 20px для правого и левого края.</p>
+  </section>
+  
+  <section class="slide">
+    <h2>Внешние отступы</h2>
+    <p><code>Margin: 10px 20px 30px;</code> применит отступ в 10px для верхнего края, отступ в 20px для правого и левого края, отступ в 30px от нижнего края.</p>
+    <p><code>Margin: 10px 20px 30px 40px;</code> Применит отступ в 10px для верхнего края, отступ в 20px для правого, отступ в 30px от нижнего края и отступ в 40px для левого края.</p>
+    <p><a href="https://codepen.io/anton_varnauski/pen/pKRryN">Живой пример</a>.</p>
+  </section>    
+  
+  <section class="slide" id="padding">
+    <h2>Поля</h2>
+    <p>Поля (внутренние отступы) — это расстояние от границ элемента до границ его содержимого.</p>
+    <p>Для применения полей используется свойство <code>padding</code> с указанием от какой границ отступать – <code>padding-top</code>, <code>padding-right</code>, <code>padding-bottom</code>, <code>padding-left</code>.</p>
+  </section>  
+  
+  <section class="slide">
+    <h2>Поля</h2>
+    <p>Для того, чтобы указывать все отступы сразу, в свойстве <code>padding</code> тоже можно объединять отступы, указывая 1, 2, 3 и 4 значения.</p>
+    <p><code>padding: 20px;</code> свойство с одним значением применит добавит одинаковые поля со всех сторон.</p>
+    <p><code>padding: 100px 30px;</code> применит большое поле 100px для верхнего и нижнего края, а поле в 30px для правого и левого края.</p>
+  </section>
+  
+  <section class="slide">
+    <h2>Поля</h2>
+    <p><code>padding: 100px 20px 50px;</code> применит поле в 100px для верхнего края, поле в 20px для правого и левого края, поле в 50px от нижнего края.</p>
+    <p><code>padding: 100px 50px 25px 5px;</code> Применит поле в 100px для верхнего края, поле в 50px для правого, поле в 25px от нижнего края и поле в 5px для левого края.</p>
+    <p><a href="https://codepen.io/anton_varnauski/pen/qKRXay">Живой пример</a>.</p>
+  </section>    
+  
+  <section class="slide chapter" id="borders">
+    <h2>Рамки</h2>
+  </section>    
+  
+  <section class="slide">
+    <h2>Рамки</h2>
+    <p>Мы подразумеваем, что у всех элементов есть рамка. Часто мы просто держим её в воображении, но ничто не мешает сделать рамку видимой.</p>
+    <p>Визуально оформить рамку можно при помощи свойства <code>border</code>.</p>
+    <p>Указать необходимо три значения:</p>
+    <p><code>border: <span style="font-weight: 700;">[толщина]</span> <span>[тип линии]</span> <span style="color: red;">[цвет]</span>;</code></p>
+    <p><code>border: <span style="font-weight: 700;">1px</span> solid <span style="color: red;">red</span>;</code> – создаст линию толщиной в 1 пиксель, линия будет сплошная (<code>solid</code>) и красного (<code>red</code>) цвета.</p>
+  </section>
+  
+  <section class="slide">
+    <h2>Рамки</h2>
+    <p><strong>Толщина линии</strong><br>
+    Может быть задана в пикселях и никогда в процентах.</p>
+    <p><strong>Цвет линии</strong><br>
+    Может быть указан в любом из цветовых форматов: <code>grey</code>, <code>#48bc36</code>, <code>hsl(112, 55%, 47%)</code>. Может быть и прозрачной: <code>transparent</code>.</p>
+    <p><strong>Стиль линии</strong></p>
+    <ul style="margin-top: 0; font">
+      <li style="margin-top: 0;">Solid – сплошная;</li>
+      <li style="margin-top: 0;">Dashed – прерывистая;</li>
+      <li style="margin-top: 0;">Dotted – линия из точек;</li>
+      <li style="margin-top: 0;">и т.д.</li>
+    </ul>
+  </section>
+  
+  <section class="slide">
+    <style>
+      table.data {
+        border-collapse: collapse;
+        font-size: 0.6em;
+        width: 100%;
+        margin-left: 0;
+      }
+      .data th {
+        background-color: #00bcd436;
+      }
+      .data td, .data th {
+        border: 1px solid #333;
+        padding: 4px!important;
+      } 
+      .data td {
+        width: 33.33%;
+      }
+    </style>
+    <h2>Стили рамок</h2>
+    <table class="data">
+      <tbody><tr> 
+        <th>1 пиксель</th>
+        <th>4 пикселя</th>
+        <th>8 пикселей</th>
+      </tr>
+      <tr> 
+        <td><p style="border: 1px #00bcd4 dotted; margin: 0">dotted</p></td>
+        <td><p style="border: 4px #00bcd4 dotted; margin: 0">dotted</p></td>
+        <td><p style="border: 8px #00bcd4 dotted; margin: 0">dotted</p></td>
+      </tr>
+      <tr> 
+        <td><p style="border: 1px #00bcd4 dashed; margin: 0">dashed</p></td>
+        <td><p style="border: 4px #00bcd4 dashed; margin: 0">dashed</p></td>
+        <td><p style="border: 8px #00bcd4 dashed; margin: 0">dashed</p></td>
+      </tr>
+      <tr> 
+        <td><p style="border: 1px #00bcd4 solid; margin: 0">solid</p></td>
+        <td><p style="border: 4px #00bcd4 solid; margin: 0">solid</p></td>
+        <td><p style="border: 8px #00bcd4 solid; margin: 0">solid</p></td>
+      </tr>
+      <tr> 
+        <td><p style="border: 1px #00bcd4 double; margin: 0">double</p></td>
+        <td><p style="border: 4px #00bcd4 double; margin: 0">double</p></td>
+        <td><p style="border: 8px #00bcd4 double; margin: 0">double</p></td>
+      </tr>
+      <tr> 
+        <td><p style="border: 1px  #00bcd4 groove; margin: 0">groove</p></td>
+        <td><p style="border: 4px  #00bcd4 groove; margin: 0">groove</p></td>
+        <td><p style="border: 8px  #00bcd4 groove; margin: 0">groove</p></td>
+      </tr>
+      <tr> 
+        <td><p style="border: 1px  #00bcd4 ridge; margin: 0">ridge</p></td>
+        <td><p style="border: 4px  #00bcd4 ridge; margin: 0">ridge</p></td>
+        <td><p style="border: 8px  #00bcd4 ridge; margin: 0">ridge</p></td>
+      </tr>
+      <tr> 
+        <td><p style="border: 1px  #00bcd4 inset; margin: 0">inset</p></td>
+        <td><p style="border: 4px  #00bcd4 inset; margin: 0">inset</p></td>
+        <td><p style="border: 8px  #00bcd4 inset; margin: 0">inset</p></td>
+      </tr>
+      <tr> 
+        <td><p style="border: 1px  #00bcd4 outset; margin: 0">outset</p></td>
+        <td><p style="border: 4px  #00bcd4 outset; margin: 0">outset</p></td>
+        <td><p style="border: 8px  #00bcd4 outset; margin: 0">outset</p></td>
+      </tr>
+    </tbody>
+    </table>
+  </section>  
+  
+  <section class="slide chapter" id="vertical">
+    <h2>Вертикальное выравнивание</h2>
+  </section>   
+  
+  <section class="slide">
+    <h2>Вертикальное выравнивание</h2>
+    <p>Если добавить на страницу несколько фотографий разного размера, они выровняются по нижнему краю так, словно выставлены на стол:</p>
+    <img src="i/v-align-baseline.png" style="width: 100%; display: block; margin: 10px auto;">
+  </section>   
+  
+  <section class="slide">
+    <h2>Вертикальное выравнивание</h2>
+    <p>Это не всегда тот эффект, которого нужно добиться. Часто нужно выровнять что-то по центру, как бусины на нитке:</p>
+    <img src="i/v-align-middle.png" style="width: 100%; display: block; margin: 50px auto;">
+  </section>     
+  
+  <section class="slide">
+    <h2>Вертикальное выравнивание</h2>
+    <p>Свойство <code>vertical-align</code> выравнивает элемент по вертикали относительно родителя или окружающих его элементов.</p>
+    <p>Данное свойство можно применять к изображениям, к строчным элементам и ячейкам таблиц.</p>  
+  </section>
+    
+  <section class="slide">
+    <h2>Вертикальное выравнивание</h2>      
+    <p style="font-size: 80%;">Свойство <code>vertical-align</code> может принимать следующие значения:</p>
+    <ul style="margin-top: 0; font-size: 80%;">
+      <li style="margin-top: 0;"><code>baseline</code> - выравнивает базовую линию блока по базовой линии родителя. Если у блока нет базовой линии, то за неё принимается нижняя граница;</li>
+      <li style="margin-top: 0;"><code>bottom</code> - выравнивает низ блока по нижней части строки;</li>      
+      <li style="margin-top: 0;"><code>middle</code> - Выравнивает вертикальную среднюю точку блока по базовой линии родительского и добавляет половину высоты;</li>
+      <li style="margin-top: 0;"><code>sub</code> - Опускает базовую линию блока вниз для создания нижнего индекса. НЕ  изменяет размер текста;</li>
+      <li style="margin-top: 0;"><code>super</code> - Поднимает базовую линию блока вверх для создания верхнего индекса. НЕ изменяет размер текста;</li>
+      <li style="margin-top: 0;"><code>top</code> - Выравнивает верх блока по верхней части строки.</li>      
+    </ul>
+    <p style="margin-top: 0; font-size: 80%;">Также можно указывать значения в пикселях и процентах, положительное значение сместит выше базовой линии, а отрицательное ниже.</p>
+  </section>
+  
+  <section class="slide">
+    <h2>Вертикальное выравнивание</h2>
+    <p><a href="https://codepen.io/anton_varnauski/pen/JZEMWB?editors=1100">Живой пример.</a></p>
+    <p><span style="font-size: 48px; font-family: serif; color: black;">FOXFORD</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="i/v-align.png" style="vertical-align: middle;"></p>
+    
+    <p>Чтобы обратиться к каждой букве по-отдельности, мы заключим её в тег <code>span</code>:</p>
+    <pre style="font-size: 0.55em; margin-top: 30px;">
+      <code class="language-html  line-numbers">
+          &lt;span&gt;F&lt;/span&gt;&lt;span&gt;O&lt;/span&gt;&lt;span&gt;X&lt;/span&gt;&lt;span&gt;F&lt;/span&gt;&lt;span&gt;O&lt;/span&gt;&lt;span&gt;R&lt;/span&gt;&lt;span&gt;D&lt;/span&gt;
+      </code>
+    </pre> 
+  </section>
+  
+  <section class="slide">
+    <h2>Вертикальное выравнивание</h2>
+    <p>И к каждому <code>span</code> будем обращаться по порядковому номеру, используя псевдокласс <code>:nth-child(n)</code>, где <code>n</code> это и есть номер элемента:</p>
+    
+    <pre style="font-size: 0.45em; margin-top: 30px;">
+      <code class="language-css  line-numbers">
+        span:nth-child(1){
+          vertical-align:baseline;
+        }
+        span:nth-child(2){
+          vertical-align:-20px;
+        }
+        span:nth-child(3){
+          vertical-align:super;
+        }
+        span:nth-child(4){
+          vertical-align:sub;
+        }
+        span:nth-child(5){
+          vertical-align:top;
+        }
+        span:nth-child(6){
+          vertical-align:bottom;
+        }
+        span:nth-child(7){
+          vertical-align:middle;
+        }
+      </code>
+    </pre> 
+    <p></p>
+  </section>  
+  
+  
+  
+  
+  <section class="slide">
+    <h2>Подведем итоги</h2>
+    <p>Мы умеем:</p>
+    <ol>
+      <li>Управлять размерами элементов, как шириной, так и высотой;</li>
+      <li>Задавать внутренние поля для элементов;</li>
+      <li>Задавать отступы между элементами и от границ родительского элемента;</li>
+      <li>Настраивать вид рамок;</li>
+      <li>Выравнивать элементы по вертикали.</li>
+    </ol>
+  </section>        
+    
+
+
+<div class="progress"></div>
+<script src="node_modules/shower-core/shower.min.js"></script>
+<script src="js/prism.js?v=2"></script>
+<script src="https://use.fontawesome.com/30b5a52164.js"></script>
+</body>
+</html>
