@@ -16,7 +16,7 @@
 1. Теги для разметки текста и атрибуты
 2. [Списки и таблицы](/presentations/lists-and-tables-master) ([dropbox](https://www.dropbox.com/s/zcvaiuxelwcb2up/Lists-n-tables.pdf?dl=0))
 3. [Оформление текстовых блоков с помощью CSS](/presentations/text-css) ([dropbox](https://www.dropbox.com/s/1elqsr72i7ezhcm/text-css.pdf?dl=0))
-4. [Управление блоками в потоке](presentations/flow)
+4. [Управление блоками в потоке](presentations/block-sizes) ([dropbox](https://www.dropbox.com/s/iaxxhs69zapao35/blocks.pdf?dl=0))
 
 ## Домашние задания ([репо](https://github.com/netology-code/html-foxford-homeworks/tree/master/tags))
 
