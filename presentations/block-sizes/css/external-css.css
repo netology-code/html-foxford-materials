@@ -1,0 +1,19 @@
+.main-img{
+    float: left;
+    margin: 0 10px 10px 0;
+}
+.works-list{
+    list-style-type: disc;
+    clear: both;
+}
+.works-list li:before{
+    content: none;
+    display: none;
+}
+blockquote{
+    font-style: normal;
+}
+blockquote:before, blockquote:after{
+    content: none;
+    display: none;
+}
