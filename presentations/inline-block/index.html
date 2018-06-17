@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Управление блоками в потоке</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-16x10.css">
+    <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/prism-fix.css">
+    <link rel="stylesheet" href="css/netology.css">
+    <link rel="stylesheet" href="css/fake-browser.css">
+
+    <style>
+        pre {
+            font-size: 70%;
+        }
+
+        .demo {
+            font-size: 50%;
+            float: right;
+        }
+
+        .accent {
+            color: #48bc36;
+        }
+
+        .exmpl-button {
+          display: inline-block;
+          text-align: center;
+          text-decoration: none;
+          color: #fff;
+          background-color: tomato;
+          padding: 15px 20px;
+          min-width: 100px;
+          line-height: 1;
+          font-size: 16px;
+        }
+    </style>
+</head>
+<body class="shower list">
+  <header class="caption">
+      <h1>Строчно-блочные (inline-block) элементы.</h1>
+      <p>Семен Бойко</p>
+  </header>
+
+  <section class="slide" id="cover">
+      <h2>Строчно-блочные элементы</h2>
+      <p style="font-size: 20px;">
+          <img src="i/ab.jpeg" alt="" class="avatar">
+          Имя лектора <span class="position">Ведущий фронтенд-разработчик в www.media-storm.ru</span>
+      </p>
+  </section>
+  <section class="slide author" id="author" style="padding-top: 110px;">
+      <img src="i/ab.jpeg" alt="">
+      <h1>Имя Лектора</h1>
+      <p class="position">Доолжность лектора</p>
+  </section>
+
+  <section class="slide" id="roadmap">
+    <h2>План занятия</h2>
+    <ol>
+      <li><a href="#definition">Определение строчно-блочных (inline-block) элементов</a></li>
+      <li><a href="#usage">Применение inline-block элементов</a></li>
+      <li><a href="#examples">Решение некоторых задач с помощью inline-block</a>
+      <li><a href="#problems">Проблемы при использовании inline-block</a></li>
+      <li><a href="#homeword">Домашнее задание</a></li>
+    </ol>
+  </section>  
+
+  <section class="slide chapter" id="definition">
+    <h2>Что такое строчно-блочные элементы</h2>
+  </section>
+  
+  <section class="slide">
+    <p>&nbsp;</p>
+    <p style="margin-bottom: 90px;"><strong>Строчно-блочные элементы (inline-block)</strong> — это элементы, объединяющие в себе свойства блочных элементов (display: block) и строчных элементов (display: inline).</p>
+    <p style="text-align: center"><img src="i/block-plus-inline.jpg" alt="" width="80%"></p>
+  </section>
+  
+  <section class="slide">
+    <h2>Главное отличие от блочных элементов</h2>
+    <p style="margin-bottom: 50px;">Строчно-блочные элементы не добавляют перенос строки после себя, следовательно элементы могут следовать друг за другом горизонтально.</p>
+    <img src="i/horiz.png" alt="">
+  </section>
+
+  <section class="slide">
+    <h2>Главное отличие от инлайновых элементов</h2>
+    <p style="margin-bottom: 10px;">Строчно-блочные элементы позволяют задавать для себя ширину и высоту, а так же верхние и нижние внешние отступы (margin-top, margin-bottom).</p>
+    <img src="i/size.png" alt="">
+  </section>
+
+  <section class="slide">
+    <h2>Основные свойства строчно-блочных элементов</h2>
+    <ul>
+      <li>Как блочный элемент, имеет ширину и высоту, а также форму прямоугольника</li>
+      <li>Как у инлайнового элемента, ширина и высота определяется содержимым</li>
+      <li>Как у блочного элемента, ширину и высоту можно поменять, можно задать margin-top/margin-bottom</li>
+      <li>Как инлайновый элемент, НЕ переносит следующий элемент на новую строку</li>
+    </ul>
+  </section>
+
+  <section class="slide chapter">
+    <h2>Какие элементы являются строчно-блочными?</h2>
+  </section>
+
+  <section class="slide">
+    <h2>Строчно-блочные элементы по умолчанию</h2>
+    <p>
+      <span style="padding: 5px 15px;background: #efefef">input</span>
+      <span style="padding: 5px 15px;background: #efefef">textarea</span>
+      <span style="padding: 5px 15px;background: #efefef">select</span>
+      <span style="padding: 5px 15px;background: #efefef">button</span>
+      <span style="padding: 5px 15px;background: #efefef">meter</span>
+      <span style="padding: 5px 15px;background: #efefef">progress</span>
+    </p>
+
+    <div style="margin-top: 70px;padding: 20px 30px 30px; border: 2px dashed #333">
+      <strong style="font-size: 30px">Важно!</strong>
+      <div>Не во всех браузерах данные элементы имеют по умолчанию display: inline-block. Подробнее о дефолтных значениях display можно узнать по ссылке
+        <a href="https://codepen.io/avernikoz/pen/LdGOpp">https://codepen.io/avernikoz/pen/LdGOpp</a></div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>Свойство display</h2>
+    <p>С помощью свойства display мы можем задать любое отображение — сделать элемент блочным, строчным или строчно-блочным. Но сегодня нас интересует значение inline-block, которые отвечает как раз за строчно-блочные или, как еще говорят, инлайн блочные элементы.</p>
+    <pre style="margin-top: 40px;">
+      <code class="language-css  line-numbers">
+        ul li {
+          display: inline-block;
+        }
+
+        .my-element {
+          display: inline-block;
+        }
+      </code>
+    </pre>
+  </section>
+
+  <section class="slide">
+    <h2>Селекторы классов</h2>
+    <p>Для стилизации кроме селекторов тегов (div, span, ul, li, p и т.д.) мы можем применять селекторы классов. С помощью селектора класса мы можем «выбрать» нужный нам элемент по значению атрибута class.</p>
+
+    <div style="display: flex;justify-content: space-between;">
+      <div style="flex-basis: 48%; margin-top: 30px;">
+        <script type="text/plain" class="lang-markup language-html line-numbers small-pre">
+        <ul class="list">
+          <li class="list-item">Пункт один</li>
+          <li class="list-item">Пункт два</li>
+          <li class="list-item">Пункт три</li>
+        </ul>
+    </script>
+      </div>
+      <pre style="flex-basis: 48%; margin-top: 30px;">
+      <code class="language-css  line-numbers">
+        .list {
+          padding-left: 0;
+        }
+
+        .list-item {
+          list-style-type: none;
+        }
+      </code>
+    </pre>
+    </div>
+  </section>
+
+  <section class="slide">
+    <h2>Значение классов в современной верстке</h2>
+    <p>На сегодняшний день, <strong>селекторы классов</strong> имеют огромное значение в верстке и <strong>наиболее употребимы</strong>. С помощью классов мы можем легко выбрать нужный нам элемент. Классы помогают избегать излишнего повторения кода в стилях.</p>
+  </section>
+
+  <section class="slide chapter" id="usage">
+    <h2>II. Применение строчно-блочных элементов</h2>
+  </section>
+
+  <section class="slide">
+    <h2>Стилизация элементов</h2>
+    <p>Мы можем задавать для элемента display: inline-block, чтобы обеспечить возможность его стилизации, а именно задавать для него ширину и высоту. Важно помнить, что изначально ширина строчно-блочных элементов зависит от контента!</p>
+    <p><u>Типичный пример</u> — оформление ссылки в виде кнопки.</p>
+  </section>
+
+  <section class="slide">
+    <h2>Делаем кнопку из ссылки</h2>
+    <p>Частая практика задавать для кнопок min-width, чтобы кнопка не стала меньше определенного размера. С display: inline-block это можно сделать</p>
+    <div style="display: flex;justify-content: space-between;">
+       <pre style="flex-basis: 48%;font-size: 0.55em; margin-top: 30px;">
+      <code class="language-css  line-numbers">
+        .link {
+          display: inline-block;
+          text-align: center;
+          text-decoration: none;
+          color: #fff;
+          background-color: tomato;
+          padding: 15px 20px;
+          min-width: 100px;
+        }
+      </code>
+    </pre>
+      <div style="flex-basis: 30%;padding-top: 90px;">
+        <span class="exmpl-button">Кнопка</span>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="slide">
+    <h2>Горизонтальное расположение элементов</h2>
+    <p>Мы можем изменять стандартное направление элементов (вертикально, сверху вниз), на горизонтальное.</p>
+    <p style="margin-bottom: -10px;"><strong>Когда это нужно?</strong></p>
+    <ul>
+      <li>горизонтальное меню</li>
+      <li>карточки</li>
+      <li>другая информация в виде колонок</li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <h2>Примеры</h2>
+    <h3 style="margin-top: 100px;">Горизонтальное меню</h3>
+    <img src="i/horizontal-menu.png" alt="" style="width:100%;">
+
+  </section>
+
+  <section class="slide">
+    <h3 style="margin-top: 60px;margin-bottom: 30px;">Карточки (товары в каталоге, статьи блога</h3>
+    <img src="i/cards.png" alt="" style="width:100%;">
+  </section>
+
+  <section class="slide">
+    <h3 style="margin-top: 60px;margin-bottom: 30px;">Преимущества / особенности</h3>
+    <img src="i/advantages.png" alt="" style="width:100%;">
+  </section>
+
+  <section class="slide chapter" id="examples">
+    <h2>III. Решение некоторых задач с помощью inline-block</h2>
+  </section>
+
+  <section class="slide">
+    <h2>Задача №1</h2>
+    <p><strong>Дано:</strong> список филиалов в виде списка, каждый элемент списка содержит название города, которое является ссылкой</p>
+    <p><strong>Цель:</strong> города должны располагаться горизонтально, у каждой ссылки должен быть задан фон, расстояние между ссылками должно составлять 5px</p>
+  </section>
+
+  <section class="slide">
+    <h2>Решение</h2>
+    <p>Приведена только часть кода. Полный код в живом примере</p>
+    <pre style="flex-basis: 48%; margin-top: 30px;">
+      <code class="language-css  line-numbers">
+        .list {
+          font-size: 0;
+        }
+
+        .list-item {
+          display: inline-block;
+          list-style-type: none;
+          margin: 0 5px 5px 0;
+        }
+
+        .list-link {
+          display: inline-block;
+          padding: 10px 20px;
+        }
+      </code>
+    </pre>
+    <div style="position: absolute;top: 100px;right: 80px;"><a href="https://codepen.io/sborjes/pen/oyGdLb" target="_blank">Живой пример</a></div>
+  </section>
+
+  <section class="slide">
+    <h2>Задача №2</h2>
+    <p><strong>Дано:</strong> блок «Преимущества нашей компании»; каждое преимущество состоит из цифры, заголовка и описания</p>
+    <p><strong>Цель:</strong> расположить преимущества в строку и центрировать их</p>
+  </section>
+
+  <section class="slide">
+    <h2>Решение</h2>
+    <p>Приведена только часть кода. Полный код в живом примере</p>
+    <pre style="flex-basis: 48%; margin-top: 30px;">
+      <code class="language-css  line-numbers">
+        .advantages-list {
+          text-align: center;
+        }
+
+        .advantages-item {
+          display: inline-block;
+          width: 33.333%;
+          margin-right: -4px;
+        }
+      </code>
+    </pre>
+    <div style="position: absolute;top: 100px;right: 80px;"><a href="https://codepen.io/sborjes/pen/yEzjZd" target="_blank">Живой пример</a></div>
+  </section>
+
+  <section class="slide">
+    <h2>Заметили какие-то странности в коде?</h2>
+    <p>Обратили внимание на font-size: 0 в первом примере и отрицательный margin-right во второй задаче?</p>
+    <p style="color: tomato;">Это основной недостаток использования строчно-блочных элементов!</p>
+  </section>
+
+  <section class="slide chapter" id="problems">
+    <h2>IV. Проблема при использовании inline-block</h2>
+  </section>
+
+  <section class="slide">
+    <h3 style="font-weight: 700;">Описание проблемы</h3>
+    <p>У строчно-блочных элементов появляется отступ справа, который мы не задавали. Это не дает нам просто задать ширину элементу в 50% для 2-х колонок, 33.333% для 3-х колонок и т.д.</p>
+    <h3 style="font-weight: 700;margin-top: 40px;">Причина</h3>
+    <p>Этот отступ достался от строчных элементов. Т.к. строчные элементы должны встраиваться в текст между другими словами, то появляется отступ, равный межстрочному интервалу.</p>
+    <div style="position: absolute;bottom: 20px;"><a href="https://codepen.io/sborjes/pen/Nzazxm" target="_blank">Живой пример</a></div>
+  </section>
+
+  <section class="slide">
+    <h2>Решение</h2>
+    <ul>Решить эту проблему можно один из следующих способов:
+      <li>font-size: 0 для родителя</li>
+      <li>отрицательный margin-right</li>
+      <li>отрицательный word-spacing для родителя</li>
+    </ul>
+    <div style="position: absolute;bottom: 20px;"><a href="https://codepen.io/sborjes/pen/qKPKZj" target="_blank">Живой пример</a>
+  </section>
+
+  <section class="slide">
+    <h2>font-size: 0</h2>
+    <p>Межсловное расстояние зависит от размера шрифта, чем он меньше, тем меньше расстояние между словами. Соответственно расстояние равно нулю при нулевом размере шрифта.</p>
+    <p><strong>Минус:</strong> Свойство font-size наследуется. Для вложенных элементов нужно задавать размер шрифта.</p>
+  </section>
+
+  <section class="slide">
+    <h2>Отрицательный margin-right</h2>
+    <p>Можно «притянуть» соседний элемент с помощью отрицательно margin-right.</p>
+    <p><strong>Минус:</strong> для каждого шрифта и под каждый размер значение margin-right нужно подбирать отдельно.</p>
+  </section>
+
+  <section class="slide">
+    <h2>Отрицательный word-spacing для родителя</h2>
+    <p>Можно задать отрицательно межсловное расстояние с помощью свойства word-spacing.</p>
+    <p><strong>Минус:</strong> для каждого шрифта и под каждый размер значение word-spacing нужно подбирать отдельно.</p>
+  </section>
+
+  <section class="slide">
+    <h2>Дополнительно</h2>
+    <p>Кого-то может удивить, что иногда не работает свойство text-align: justify. Например, мы хотим выровнять элементы по всей ширине родительского контейнера. Если элементов меньше, чем нужно для переноса на другую строку, то text-align: justify не будет работать. Это поведение точно такое же, как и при выравнивании текста. Если вы выравниваете текст по ширине, то несколько слов в последней строке должны остаться выровненными по левому краю.</p>
+  </section>
+
+  <section class="slide">
+    <h2>Решение</h2>
+    <p>Это решается с помощью добавления псевдоэлемента. Возможно, это сейчас сложно для понимание, но в будущем вам может пригодиться это решение.</p>
+    <div style="margin-top: 50px;"><a href="https://codepen.io/sborjes/pen/Lrzrbz" target="_blank">Живой пример</a></div>
+  </section>
+
+  <section class="slide" id="homework">
+    <h2>Подведем итоги</h2>
+    <p style="font-weight: 700;">Что мы сегодня с вами услели сделать:</p>
+    <ul>
+      <li>разобрались с тем, что такое строчно-блочные элементы, и определил их основыне характеристики</li>
+      <li>познакомились со свойством display и селекторами классов</li>
+      <li>разобрали некоторые случаи, в которых применяются строчно-блочные элементы</li>
+      <li>обнаружили и обошли особенности строчно-блочных элементов, которые могут мешать верстке</li>
+    </ul>
+  </section>
+
+  <section class="slide last">
+    <p class="thanx">Задавайте вопросы и напишите отзыв о лекции!</p>
+    <address>Имя Лектора</address>
+    <ul class="contacts">
+      <li><a href="mailto:anton.varnauski@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i>email </a></li>
+      <li><a href="skype:anton_varnavskiy"><i class="fa fa-skype" aria-hidden="true"></i>skype</a></li>
+    </ul>
+  </section>
+
+<div class="progress"></div>
+<script src="node_modules/shower-core/shower.min.js"></script>
+<script src="js/prism.js?v=2"></script>
+<script src="https://use.fontawesome.com/30b5a52164.js"></script>
+</body>
+</html>
