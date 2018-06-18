@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
-    <title>Управление блоками в потоке</title>
+    <title>Строчно-блочные элементы</title>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,21 +40,25 @@
 </head>
 <body class="shower list">
   <header class="caption">
-      <h1>Строчно-блочные (inline-block) элементы.</h1>
-      <p>Семен Бойко</p>
+      <h1>Строчно-блочные (inline-block) элементы</h1>
+      <p>Денис Завгородний</p>
   </header>
 
   <section class="slide" id="cover">
       <h2>Строчно-блочные элементы</h2>
-      <p style="font-size: 20px;">
-          <img src="i/ab.jpeg" alt="" class="avatar">
-          Имя лектора <span class="position">Ведущий фронтенд-разработчик в www.media-storm.ru</span>
+      <p style="font-size: 19px;">
+          <img src="i/dz.jpeg" alt="" class="avatar">
+          Денис Завгородний <span class="position">Руководитель frontend-отдела, ведущий веб-технолог</span>
       </p>
   </section>
   <section class="slide author" id="author" style="padding-top: 110px;">
-      <img src="i/ab.jpeg" alt="">
-      <h1>Имя Лектора</h1>
-      <p class="position">Доолжность лектора</p>
+      <img src="i/dz.jpeg" alt="">
+      <h1>Денис Завгородний</h1>
+      <p class="position">Руководитель frontend-отдела, ведущий веб-технолог в AlterEGO</p>
+      <ul class="contacts">
+          <li><a href="mailto:denis.zavgorodny@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i>denis.zavgorodny@gmail.com</a></li>
+          <li><a href="https://www.facebook.com/denis.zavgorodny"><i class="fa fa-facebook" aria-hidden="true"></i>denis.zavgorodny</a></li>
+      </ul>
   </section>
 
   <section class="slide" id="roadmap">
@@ -64,7 +68,6 @@
       <li><a href="#usage">Применение inline-block элементов</a></li>
       <li><a href="#examples">Решение некоторых задач с помощью inline-block</a>
       <li><a href="#problems">Проблемы при использовании inline-block</a></li>
-      <li><a href="#homeword">Домашнее задание</a></li>
     </ol>
   </section>  
 
@@ -74,7 +77,7 @@
   
   <section class="slide">
     <p>&nbsp;</p>
-    <p style="margin-bottom: 90px;"><strong>Строчно-блочные элементы (inline-block)</strong> — это элементы, объединяющие в себе свойства блочных элементов (display: block) и строчных элементов (display: inline).</p>
+    <p style="margin-bottom: 90px;"><strong>Строчно-блочные элементы (inline-block)</strong> — это элементы, объединяющие в себе свойства блочных элементов (<code>display: block</code>) и строчных элементов (<code>display: inline</code>).</p>
     <p style="text-align: center"><img src="i/block-plus-inline.jpg" alt="" width="80%"></p>
   </section>
   
@@ -93,10 +96,10 @@
   <section class="slide">
     <h2>Основные свойства строчно-блочных элементов</h2>
     <ul>
-      <li>Как блочный элемент, имеет ширину и высоту, а также форму прямоугольника</li>
-      <li>Как у инлайнового элемента, ширина и высота определяется содержимым</li>
-      <li>Как у блочного элемента, ширину и высоту можно поменять, можно задать margin-top/margin-bottom</li>
-      <li>Как инлайновый элемент, НЕ переносит следующий элемент на новую строку</li>
+      <li>Как блочный элемент, имеет ширину и высоту, а также форму прямоугольника;</li>
+      <li>Как у инлайнового элемента, ширина и высота определяется содержимым;</li>
+      <li>Как у блочного элемента, ширину и высоту можно поменять, можно задать margin-top/margin-bottom;</li>
+      <li>Как инлайновый элемент, НЕ переносит следующий элемент на новую строку.</li>
     </ul>
   </section>
 
@@ -124,7 +127,7 @@
 
   <section class="slide">
     <h2>Свойство display</h2>
-    <p>С помощью свойства display мы можем задать любое отображение — сделать элемент блочным, строчным или строчно-блочным. Но сегодня нас интересует значение inline-block, которые отвечает как раз за строчно-блочные или, как еще говорят, инлайн блочные элементы.</p>
+    <p>С помощью свойства display мы можем задать любое отображение — сделать элемент блочным, строчным или строчно-блочным. Но сегодня нас интересует значение inline-block, которое отвечает как раз за строчно-блочные или, как еще говорят, инлайн-блочные элементы.</p>
     <pre style="margin-top: 40px;">
       <code class="language-css  line-numbers">
         ul li {
@@ -177,13 +180,13 @@
 
   <section class="slide">
     <h2>Стилизация элементов</h2>
-    <p>Мы можем задавать для элемента display: inline-block, чтобы обеспечить возможность его стилизации, а именно задавать для него ширину и высоту. Важно помнить, что изначально ширина строчно-блочных элементов зависит от контента!</p>
+    <p>Мы можем задавать для элемента <code>display: inline-block</code>, чтобы обеспечить возможность его стилизации, а именно задавать для него ширину и высоту. Важно помнить, что изначально ширина строчно-блочных элементов зависит от контента!</p>
     <p><u>Типичный пример</u> — оформление ссылки в виде кнопки.</p>
   </section>
 
   <section class="slide">
     <h2>Делаем кнопку из ссылки</h2>
-    <p>Частая практика задавать для кнопок min-width, чтобы кнопка не стала меньше определенного размера. С display: inline-block это можно сделать</p>
+    <p>Частая практика задавать для кнопок min-width, чтобы кнопка не стала меньше определенного размера. С <code>display: inline-block</code> это можно сделать</p>
     <div style="display: flex;justify-content: space-between;">
        <pre style="flex-basis: 48%;font-size: 0.55em; margin-top: 30px;">
       <code class="language-css  line-numbers">
@@ -294,7 +297,7 @@
 
   <section class="slide">
     <h2>Заметили какие-то странности в коде?</h2>
-    <p>Обратили внимание на font-size: 0 в первом примере и отрицательный margin-right во второй задаче?</p>
+    <p>Обратили внимание на <code>font-size: 0</code> в первом примере и отрицательный margin-right во второй задаче?</p>
     <p style="color: tomato;">Это основной недостаток использования строчно-блочных элементов!</p>
   </section>
 
@@ -313,11 +316,11 @@
   <section class="slide">
     <h2>Решение</h2>
     <ul>Решить эту проблему можно один из следующих способов:
-      <li>font-size: 0 для родителя</li>
+      <li><code>font-size: 0</code> для родителя</li>
       <li>отрицательный margin-right</li>
       <li>отрицательный word-spacing для родителя</li>
     </ul>
-    <div style="position: absolute;bottom: 20px;"><a href="https://codepen.io/sborjes/pen/qKPKZj" target="_blank">Живой пример</a>
+    <div style="position: absolute;bottom: 20px;"><a href="https://codepen.io/sborjes/pen/qKPKZj" target="_blank">Живой пример</a></div>
   </section>
 
   <section class="slide">
@@ -353,19 +356,19 @@
     <h2>Подведем итоги</h2>
     <p style="font-weight: 700;">Что мы сегодня с вами услели сделать:</p>
     <ul>
-      <li>разобрались с тем, что такое строчно-блочные элементы, и определил их основыне характеристики</li>
-      <li>познакомились со свойством display и селекторами классов</li>
-      <li>разобрали некоторые случаи, в которых применяются строчно-блочные элементы</li>
-      <li>обнаружили и обошли особенности строчно-блочных элементов, которые могут мешать верстке</li>
+      <li>разобрались с тем, что такое строчно-блочные элементы, и определили их основные характеристики;</li>
+      <li>познакомились со свойством display и селекторами классов;</li>
+      <li>разобрали некоторые случаи, в которых применяются строчно-блочные элементы;</li>
+      <li>обнаружили и обошли особенности строчно-блочных элементов, которые могут мешать верстке.</li>
     </ul>
   </section>
 
   <section class="slide last">
     <p class="thanx">Задавайте вопросы и напишите отзыв о лекции!</p>
-    <address>Имя Лектора</address>
+    <address>Денис Завгородний</address>
     <ul class="contacts">
-      <li><a href="mailto:anton.varnauski@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i>email </a></li>
-      <li><a href="skype:anton_varnavskiy"><i class="fa fa-skype" aria-hidden="true"></i>skype</a></li>
+      <li><a href="mailto:denis.zavgorodny@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i>denis.zavgorodny@gmail.com</a></li>
+      <li><a href="https://www.facebook.com/denis.zavgorodny"><i class="fa fa-facebook" aria-hidden="true"></i>denis.zavgorodny</a></li>
     </ul>
   </section>
 
