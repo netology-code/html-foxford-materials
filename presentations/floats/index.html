@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Плавающие элементы</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-16x10.css">
+    <link rel="stylesheet" href="css/prism.css">
+    <link rel="stylesheet" href="css/prism-fix.css">
+    <link rel="stylesheet" href="css/netology.css">
+    <link rel="stylesheet" href="css/fake-browser.css">
+
+    <style>
+        pre {
+            font-size: 70%;
+        }
+
+        .demo {
+            font-size: 50%;
+            float: right;
+        }
+
+        .accent {
+            color: #48bc36;
+        }
+    </style>
+</head>
+<body class="shower list">
+  <header class="caption">
+      <h1>Плавающие элементы</h1>
+      <p>Плавающие элементы</p>
+  </header>
+
+  <section class="slide" id="cover">
+      <h2>Плавающие элементы</h2>
+      <p style="font-size: 19px;">
+          <img src="i/dz.jpeg" alt="" class="avatar">
+          Денис Завгородний <span class="position">Руководитель frontend-отдела, ведущий веб-технолог</span>
+      </p>
+  </section>
+  <section class="slide author" id="author" style="padding-top: 110px;">
+      <img src="i/dz.jpeg" alt="">
+      <h1>Денис Завгородний</h1>
+      <p class="position">Руководитель frontend-отдела, ведущий веб-технолог в AlterEGO</p>
+      <ul class="contacts">
+          <li><a href="mailto:denis.zavgorodny@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i>denis.zavgorodny@gmail.com</a></li>
+          <li><a href="https://www.facebook.com/denis.zavgorodny"><i class="fa fa-facebook" aria-hidden="true"></i>denis.zavgorodny</a></li>
+      </ul>
+  </section>
+
+  <section class="slide" id="roadmap">
+    <h2>План занятия</h2>
+    <ol>
+      <li><a href="#definition">Что такое плавающие элементы</a></li>
+      <li><a href="#images">Плавающие картинки в тексте</a></li>
+      <li><a href="#floating-blocks">Плавающие блоки</a>
+      <li><a href="#clear">Особенности использования float</a>
+      <li><a href="#floating-columns">Колонки на float</a>
+      <li><a href="#problems">Проблемы при использовании float</a></li>
+    </ol>
+  </section>  
+
+  <section class="slide chapter" id="definition">
+    <h2>Что такое плавающие элементы</h2>
+  </section>
+  
+  <section class="slide">
+    <p>Если открыть любую статью в Wikipedia, там почти наверняка будут небольшие фотографии слева и справа от текста.</p>
+    <img src="i/wiki.jpg" style="display: block; margin: 20px auto; width: 55%; border: 1px solid #bebebe; padding: 20px;">
+    <p>Эти фотографии с прилагающимися к ним описаниями и есть плавающие элементы.</p>
+  </section>  
+  
+  <section class="slide">
+    <h2>Свойство float</h2>
+    <p>Чтобы сделать элемент плавающим, нужно задать для него свойство <code>float</code>.</p>
+    <p>Свойство принимает следующие значения:</p>
+    <ul>
+      <li><code>float: left;</code> — элемент будет придвинут к левому краю;</li>
+      <li><code>float: right;</code> — элемент сдвинется к правому краю;</li>
+      <li><code>float: none;</code> — элемент останется на месте.</li>
+    </ul> 
+    <p><strong>Заметьте!</strong> Плавающих элементов по умолчанию не существует.</p>
+  </section>
+  
+  <section class="slide chapter">
+    <h2>Механизм работы float</h2>
+  </section>
+  
+  <section class="slide">
+    <h2>Механизм работы float</h2>
+    <img src="i/river.jpg" style="float: left; margin: 10px 30px 10px 0; width: 50%;">
+    <p>Блочные элементы располагаются на странице друг за другом сверху вниз.</p>
+    <p>Элемент, размещённый в верху кода, отобразится раньше элемента, расположенного в коде ниже.</p>
+    <p>Этот порядок следования называется <strong>потоком</strong> документа.</p>
+  </section>  
+  
+  <section class="slide">
+    <h2>Механизм работы float</h2>
+    <img src="i/river-2.jpg" style="float: left; margin: 10px 30px 10px 0; width: 50%;">
+    <p>Если задать элементу свойство <code>float</code>, он <em>вынимается</em> из потока.</p>
+    <p>Элемент сдвигается влево или вправо до тех пор, пока не коснётся границ родителя или другого элемента с <code>float</code>.</p>
+  </section>
+  
+  <section class="slide">
+    <h2>Механизм работы float</h2>
+    <img src="i/river-3.jpg" style="float: left; margin: 10px 30px 10px 0; width: 50%;">
+    <p>При этом оставшиеся в потоке блочные элементы не видят элемент, которому задан <code>float</code>, и ведут себя так, как будто его вовсе нет.</p>
+    <p>Знают о плавающем элементе только строки (inline-элементы) и обтекают его по сторонам.</p>
+  </section>   
+ 
+  <section class="slide chapter" id="images">
+    <h2>Плавающие картинки в тексте</h2>
+  </section>  
+  
+  <section class="slide">
+    <h2>Плавающие картинки в тексте</h2>
+    <p>Рассмотрим как работает свойство на примере.</p>
+    <p>В небольшой текст добавим обычное изображение:</p>
+    <div style="margin-top: 20px;">
+      <div style="width: 40%; display: inline-block; font-size: 17px; vertical-align: top; margin-left: 2rem;">
+        <script type="text/plain" class="lang-markup language-html line-numbers small-pre no-pre">
+          <img src="i/falcon.jpg">
+          <p>Falcon 9 — семейство ракет-носителей...</p>
+          <p>Falcon 9 состоит из двух ступеней...</p>
+        </script>
+      </div>
+      <div style="width: 40%; display: inline-block; font-size: 17px; vertical-align: top; margin-left: 4rem;">
+        <pre class="no-pre">
+          <code class="language-css  line-numbers">
+            p {
+              background-color: yellowgreen;
+            }
+            img {
+              opacity: 0.5;
+            }
+          </code>
+        </pre>
+      </div>
+    </div>  
+    <p>Параграфам зададим фоновый цвет, чтобы их размеры и границы были очевидны. Изображение сделаем полупрозрачным (<code>opacity: 0.5;</code>), чтобы было видно, что происходит под ним.</p>
+  </section>   
+  
+  <section class="slide">
+    <h2>Плавающие картинки в тексте</h2>
+    <p>Результат ожидаемый, сначала идет картинка, ниже текст:</p>
+      <div style="padding: 20px; border: 1px dashed #bebebe; margin-top: 10px; font-size: 0.6em;">
+        <img src="i/falcon.jpg" width="200" style="opacity: 0.5;">
+        <p style="background-color: yellowgreen;">Falcon 9 — семейство одноразовых и частично многоразовых ракет-носителей тяжёлого класса серии Falcon американской компании SpaceX.</p>
+        <p style="background-color: yellowgreen;">Falcon 9 состоит из двух ступеней и использует в качестве компонентов топлива керосин марки RP-1 (горючее) и жидкий кислород (окислитель). Цифра «9» в названии обозначает количество жидкостных ракетных двигателей Merlin, установленных на первой ступени ракеты-носителя.</p>
+      </div>  
+  </section>  
+  
+  <section class="slide">
+    <h2>Плавающие картинки в тексте</h2>
+    <p>Добавляем <code>float</code> к изображению:</p>
+    <div>
+        <pre class="no-pre" style="margin-top: 20px; margin-left: 0;">
+          <code class="language-css  line-numbers">
+            img {
+              float: left;
+            }
+          </code>
+        </pre>
+    </div>
+    <p>Результат:</p>
+    <div style="padding: 20px; border: 1px dashed #bebebe; margin-top: 10px; font-size: 0.6em;">
+      <img src="i/falcon.jpg" width="200" style="float: left; opacity: 0.5;">
+      <p style="background-color: yellowgreen;">Falcon 9 — семейство одноразовых и частично многоразовых ракет-носителей тяжёлого класса серии Falcon американской компании SpaceX.</p>
+      <p style="background-color: yellowgreen;">Falcon 9 состоит из двух ступеней и использует в качестве компонентов топлива керосин марки RP-1 (горючее) и жидкий кислород (окислитель). Цифра «9» в названии обозначает количество жидкостных ракетных двигателей Merlin, установленных на первой ступени ракеты-носителя.</p>
+    </div>     
+  </section>
+  
+  <section class="slide">
+    <h2>Что произошло:</h2>
+    <ul>
+      <li>Изображение вынуто из потока и сдвинуто влево;</li>
+      <li>Параграфы (блочные элементы), перестали видеть изображение и поднялись на то место, где оно было (под изображением виден фон параграфов);</li>
+      <li>Строки (inline элементы) продолжают видеть изображение и обтекают его по границе.</li>
+    </ul>
+    <p>Если задать <code>float: right;</code>, произойдет всё то же самое, только изображение будет сдвинуто вправо.</p>
+  </section>    
+  
+  <section class="slide chapter" id="floating-blocks">
+    <h2>Плавающие блоки</h2>
+  </section>  
+  
+  <section class="slide">
+    <h2>Плавающие блоки</h2>
+    <p>Картинки часто сопровождаются описаниями, которые расположены прямо под ними.</p>
+    <div style="float: left; margin: 10px 30px 0 0; width: 200px;">
+        <img src="i/ship.jpg" width="200px" style="float: left;">
+        <p style="font-size: 0.6em; font-style: italic;">Это плавающая картинка и её описание.</p>
+    </div>    
+    <p>Получается, что сделать плавающей только картинку уже недостаточно, описание должно выниматься из потока вместе с ней.</p><p>И это возможно!</p>
+    <p>Свойство <code>float</code> можно задать любому элементу, не только картинке. </p>
+</section> 
+  
+  <section class="slide">
+    <h2>Плавающие блоки</h2>
+    <p>Подготовим разметку — картинку и относящийся к ней текст поместим внутрь <code>div</code> с классом <code>description</code>:</p>
+    <div style="margin: 20px 60px;">
+      <script type="text/plain" class="lang-markup language-html line-numbers small-pre no-pre" style="margin-top: 20px; margin-left: 0;">
+        <div class="description"> 
+          <img src="i/falcon.jpg">
+          <p>Ракета на стартовой площадке</p>
+        </div>
+        <p>Falcon 9 — семейство ракет-носителей...</p>
+        <p>Falcon 9 состоит из двух ступеней...</p>
+      </script>
+    </div>  
+</section>
+  
+<section class="slide">
+  <h2>Плавающие блоки</h2>
+  <p>И добавляем <code>float:</code></p>
+  <div>
+      <pre class="no-pre" style="margin-top: 20px; margin-left: 0;">
+        <code class="language-css  line-numbers">
+          .description {
+            float: right;
+          }
+        </code>
+      </pre>
+  </div>
+  <p>Результат:</p>
+  <div style="padding: 20px; border: 1px dashed #bebebe; margin-top: 10px; font-size: 0.6em;">
+    <div style="float: right;"> 
+      <img src="i/falcon.jpg" width="150">
+      <p>Ракета на стартовой площадке</p>
+    </div>
+    <p>Falcon 9 — семейство одноразовых и частично многоразовых ракет-носителей тяжёлого класса серии Falcon американской компании SpaceX.</p>
+    <p>Falcon 9 состоит из двух ступеней и использует в качестве компонентов топлива керосин марки RP-1 (горючее) и жидкий кислород (окислитель). Цифра «9» в названии обозначает количество жидкостных ракетных двигателей Merlin, установленных на первой ступени ракеты-носителя.</p>
+  </div>   
+</section> 
+  
+<section class="slide">
+  <h2>Плавающие блоки</h2>
+  <p>То, что нужно. Можно добавить немного стилей для красоты:</p>
+  <div>
+      <pre class="no-pre" style="margin-top: 20px; margin-left: 0;">
+        <code class="language-css  line-numbers">
+          .description {
+            float: right;
+            padding: 10px;
+            font-size: 10px;
+            background-color: black;
+          }
+          
+          .description p {
+            font-size: 10px;
+            font-style: italic;
+            color: white;
+          }
+          
+        </code>
+      </pre>
+  </div>
+</section>
+  
+<section class="slide">
+  <h2>Плавающие блоки</h2>
+  <p>Результат:</p>
+  <div style="padding: 20px; border: 1px dashed #bebebe; margin-top: 10px; font-size: 0.6em;">
+    <div style="float: right;
+            padding: 10px;
+            font-size: 10px;
+            background-color: black;"> 
+      <img src="i/falcon.jpg" width="150">
+      <p style="font-size: 10px;
+            font-style: italic;
+            color: white;">Ракета на стартовой площадке</p>
+    </div>
+    <p>Falcon 9 — семейство одноразовых и частично многоразовых ракет-носителей тяжёлого класса серии Falcon американской компании SpaceX.</p>
+    <p>Falcon 9 состоит из двух ступеней и использует в качестве компонентов топлива керосин марки RP-1 (горючее) и жидкий кислород (окислитель). Цифра «9» в названии обозначает количество жидкостных ракетных двигателей Merlin, установленных на первой ступени ракеты-носителя.</p>
+  </div>   
+</section>
+  
+<section class="slide chapter" id="clear">
+  <h2>Особенности использования float</h2>
+</section>    
+  
+<section class="slide">
+  <h2>Особенности использования float</h2>
+  <p>Давайте добавим ещё одну картинку с описанием и немного текста:</p>
+    <div style="margin: 20px 60px;">
+      <script type="text/plain" class="lang-markup language-html line-numbers small-pre no-pre" style="margin-top: 20px; margin-left: 0;">
+        <div class="description"> 
+          <img src="i/falcon.jpg">
+          <p>Ракета на стартовой площадке</p>
+        </div>
+        <p>Falcon 9 — семейство ракет-носителей...</p>
+        <div class="description"> 
+          <img src="i/fins.jpg">
+          <p>Ракета на стартовой площадке</p>
+        </div>        
+        <p>Falcon 9 состоит из двух ступеней...</p>
+        <p>На ракете устанавливаются складные...</p>
+      </script>
+    </div>  
+</section>    
+  
+<section class="slide">
+  <h2>Особенности использования float</h2>
+  <p>Ожидание:</p>
+  <div style="padding: 20px; border: 1px dashed #bebebe; margin-top: 10px; font-size: 0.6em;">
+    <div style="float: right;
+            padding: 10px;
+            font-size: 10px;
+            background-color: black;"> 
+      <img src="i/falcon.jpg" width="150">
+      <p style="font-size: 10px;
+            font-style: italic;
+            color: white;">Ракета на стартовой площадке</p>
+    </div>
+    <p>Falcon 9 — семейство одноразовых и частично многоразовых ракет-носителей тяжёлого класса серии Falcon американской компании SpaceX.</p>
+    <div style="float: right; clear: right;
+            padding: 10px;
+            font-size: 10px;
+            background-color: black;"> 
+      <img src="i/fins.jpg" width="150">
+      <p style="font-size: 10px;
+            font-style: italic;
+            color: white;">Титановые рули</p>
+    </div>    
+    <p style="margin-top: 10px;">Falcon 9 состоит из двух ступеней и использует в качестве компонентов топлива керосин марки RP-1 (горючее) и жидкий кислород (окислитель). Цифра «9» в названии обозначает количество жидкостных ракетных двигателей Merlin, установленных на первой ступени ракеты-носителя.</p> 
+    <p>На ракете устанавливаются складные решетчатые рули для стабилизации вращения и улучшения управляемости на этапе снижения, особенно в то время, когда двигатели будут отключены (в целях снижения массы, для рулей использовалась незамкнутая гидравлическая система, не требующая тяжелых насосов высокого давления). Позже гидравлическая система была улучшена до замкнутой, а алюминиевые рули заменены на титановые, что упростит многоразовое использование.</p>
+  </div>   
+</section>   
+  
+<section class="slide">
+  <h2>Особенности использования float</h2>
+  <p>Реальность:</p>
+  <div style="padding: 20px; border: 1px dashed #bebebe; margin-top: 10px; font-size: 0.6em;">
+    <div style="float: right;
+            padding: 10px;
+            font-size: 10px;
+            background-color: black;"> 
+      <img src="i/falcon.jpg" width="150">
+      <p style="font-size: 10px;
+            font-style: italic;
+            color: white;">Ракета на стартовой площадке</p>
+    </div>
+    <p>Falcon 9 — семейство одноразовых и частично многоразовых ракет-носителей тяжёлого класса серии Falcon американской компании SpaceX.</p>
+    <div style="float: right; 
+            padding: 10px;
+            font-size: 10px;
+            background-color: black;"> 
+      <img src="i/fins.jpg" width="150">
+      <p style="font-size: 10px;
+            font-style: italic;
+            color: white;">Титановые рули</p>
+    </div>    
+    <p style="margin-top: 10px;">Falcon 9 состоит из двух ступеней и использует в качестве компонентов топлива керосин марки RP-1 (горючее) и жидкий кислород (окислитель). Цифра «9» в названии обозначает количество жидкостных ракетных двигателей Merlin, установленных на первой ступени ракеты-носителя.</p> 
+    <p>На ракете устанавливаются складные решетчатые рули для стабилизации вращения и улучшения управляемости на этапе снижения, особенно в то время, когда двигатели будут отключены (в целях снижения массы, для рулей использовалась незамкнутая гидравлическая система, не требующая тяжелых насосов высокого давления). Позже гидравлическая система была улучшена до замкнутой, а алюминиевые рули заменены на титановые, что упростит многоразовое использование.</p>
+  </div>   
+</section>    
+  
+  
+  
+
+  
+
+
+  <section class="slide" id="homework">
+    <h2>Подведем итоги</h2>
+    <p style="font-weight: 700;">Что мы сегодня с вами успели сделать:</p>
+    <ul>
+      <li>Выяснить, что такое плавающие элементы и зачем они нужны;</li>
+      <li>Добавлять в текст плавающие картинки;</li>
+      <li>Добавлять на страницу плавающие блоки;</li>
+    </ul>
+  </section>
+
+  <section class="slide last">
+    <p class="thanx">Задавайте вопросы и напишите отзыв о лекции!</p>
+    <address>Денис Завгородний</address>
+    <ul class="contacts">
+      <li><a href="mailto:denis.zavgorodny@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i>denis.zavgorodny@gmail.com</a></li>
+      <li><a href="https://www.facebook.com/denis.zavgorodny"><i class="fa fa-facebook" aria-hidden="true"></i>denis.zavgorodny</a></li>
+    </ul>
+  </section>
+
+<div class="progress"></div>
+<script src="node_modules/shower-core/shower.min.js"></script>
+<script src="js/prism.js?v=2"></script>
+<script src="https://use.fontawesome.com/30b5a52164.js"></script>
+</body>
+</html>
