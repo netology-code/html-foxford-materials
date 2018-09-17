@@ -23,7 +23,8 @@
 ### Блок 2
 
 4. [Управление блоками в потоке](presentations/block-sizes) ([dropbox](https://www.dropbox.com/s/iaxxhs69zapao35/blocks.pdf?dl=0))
-5. [Строчно-блочные элементы](presentations/inline-block) ([dropbox](https://www.dropbox.com/s/8alk7watir662wm/inline-block.pdf?dl=0)
+5. [Строчно-блочные элементы](presentations/inline-block) ([dropbox](https://www.dropbox.com/s/8alk7watir662wm/inline-block.pdf?dl=0))
+6. [Плавающие элементы](presentations/floats) ([dropbox](https://www.dropbox.com/s/fc6r04g04hcgg6s/floats.pdf?dl=0))
 
 ## Домашние задания ([репо](https://github.com/netology-code/html-foxford-homeworks/tree/master/tags))
 
